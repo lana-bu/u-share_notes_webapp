@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>U-Share Notes</title>
+</head>
+<body>
+    <h1>Shared Notes</h1>
+    {% for post in posts %}
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}</p>
+            <p>{{ post.description }}</p>
+            <small>Posted on {{ post.created_at }}</small>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No notes have been shared yet.</p>
+    {% endfor %}
+</body>
+</html>
