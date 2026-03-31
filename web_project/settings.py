@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
     'api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True # For development only, restrict in production
 
 ROOT_URLCONF = 'web_project.urls'
 
@@ -69,6 +73,9 @@ TEMPLATES = [
         },
     },
 ]
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 WSGI_APPLICATION = 'web_project.wsgi.application'
 

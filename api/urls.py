@@ -1,11 +1,14 @@
+from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+
 from .views import homepage, PostViewSet, UserRegistrationView, UserLoginView, UserLogoutView
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', homepage, name='homepage'),
     path('api/', include(router.urls)),
     path('signup/', UserRegistrationView.as_view(), name='signup'),

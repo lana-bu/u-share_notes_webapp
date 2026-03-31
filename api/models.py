@@ -16,7 +16,7 @@ class Post(models.Model):
     lecture_number = models.IntegerField(blank=True, null=True)
     date_of_lecture = models.DateField()
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
 
     # File handling
     notes_file = models.FileField(upload_to='notes/')
