@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>U-Share Notes</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>Shared Notes</h1>
     {% for post in posts %}
         <div>
@@ -16,5 +13,4 @@
     {% empty %}
         <p>No notes have been shared yet.</p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}
