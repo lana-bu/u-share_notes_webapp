@@ -16,6 +16,16 @@ def homepage(request):
     return render(request, 'posts.html', {'posts': posts})
 
 
+def login_page(request):
+    return render(request, 'login.html')
+
+def signup_page(request):
+    return render(request, 'signup.html')
+
+def create_post_page(request):
+    return render(request, 'create-post.html')
+
+
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-created_at')
     serializer_class = PostSerializer
