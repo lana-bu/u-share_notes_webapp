@@ -1,10 +1,9 @@
 :root {
-    /* change values later */
-    --primary-color: #21233C;
-    --secondary-color: #9191c8;
-    --text-color: #151934;
-    --accent-color: #93b0ff;
-    --background-color: #c9c9ff;
+    --primary-color: #003844;
+    --secondary-color: #69ebd0;
+    --text-color: #182825;
+    --accent-color: #c44536;
+    --reverse-text-color: #f5dbcb;
     --spacing: 0.5em;
 }
 
@@ -16,7 +15,6 @@ body {
     margin: 0;
     font-family: Optima, 'Trebuchet MS', Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
-    background-color: var(--background-color);
     display: grid;
     grid-template-areas:
         "header"
