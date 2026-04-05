@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% block title %}Home | U-Share Notes{% endblock %}
+
+{% block description %}
+    <meta name="description" content="Search for notes posted by university students.">
+{% endblock %}
+
+{% block navbar %}
+    <!-- <input type="checkbox" id="toggle">
+    <label for="toggle" class="menu-hamburger"><img src="./images/menu_icon.svg" class="hamburger"></label> -->
+    <div class="menu-container">
+        <ul class="menu">
+            <li>test 1</li>
+            <li>test 2</li>
+            <!-- <li><a href="#about-section">About</a></li>
+            <li><a href="#packages-section">Travel Packages</a></li>
+            <li><a href="#contact-section">Contact</a></li> -->
+        </ul>
+    </div>
+{% endblock %}
+
 {% block content %}
     <h1>Shared Notes</h1>
     {% for post in posts %}
@@ -13,4 +33,4 @@
     {% empty %}
         <p>No notes have been shared yet.</p>
     {% endfor %}
-{% endblock content %}
+{% endblock %}
