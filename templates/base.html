@@ -18,7 +18,19 @@
             <h1 class="site-name site-name-large">U-Share Notes</h1>
         </header>
         <nav class="nav-container">
-            {% block navbar %}{% endblock %}
+            {% block navbar %}
+                <!-- <input type="checkbox" id="toggle">
+                <label for="toggle" class="menu-hamburger"><img src="./images/menu_icon.svg" class="hamburger"></label> -->
+                <div class="menu-container">
+                    <ul class="menu">
+                        <li>test 1</li>
+                        <li>test 2</li>
+                        <!-- <li><a href="#about-section">About</a></li>
+                        <li><a href="#packages-section">Travel Packages</a></li>
+                        <li><a href="#contact-section">Contact</a></li> -->
+                    </ul>
+                </div>
+            {% endblock %}
         </nav>
         <main class="content-container">
             {% block content %}{% endblock %}
