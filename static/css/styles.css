@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #003844;
+    --secondary-color: #69ebd0;
+    --text-color: #182825;
+    --accent-color: #c44536;
+    --reverse-text-color: #f5dbcb;
+    --spacing: 0.5em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Optima, 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+
+.header-container  { grid-area: header; }
+.nav-container     { grid-area: nav; }
+.content-container { grid-area: main; }
+.footer-container  { grid-area: footer; }
+
+.header-container, .footer-container {
+    padding: var(--spacing);
+}
+
+.header-container {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.nav-container {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    color: var(--text-color);
+}
+
+.footer-container {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: var(--spacing);
+}
+
+
+
+.content-section {
+    padding: var(--spacing);
+}
+
+.content-section a {
+    color: var(--accent-color-2);
+}
+
+.btn {
+    border: none;
+    border-radius: 6%;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: Optima, 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    padding: var(--spacing);
+    margin: var(--spacing);
+    align-self: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
+/* mobile portrait layout (479px or less */
+@media only screen and (max-width: 479px) {
+    
+}
+
+
+/* mobile landscape layout (480px to 767px) */
+@media only screen and (min-width: 480px) {
+
+}
+
+/* tablet layout (768px to 1023px) */
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 1.8rem;
+    }    
+}
+
+/* desktop layout (1024px or more) */
+@media only screen and (min-width: 1024px) {
+    .content-section {
+        padding: 2em;
+    }
+}

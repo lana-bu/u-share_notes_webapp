@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}U-Share Notes{% endblock %}</title>
+    {% block description %}
+        <meta name="description" content="A notes-sharing platform for university students.">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+</head>
+    <body>
+        <header class="header-container">
+            <h1 class="site-name site-name-large">U-Share Notes</h1>
+            <img class="site-logo" src="{% static 'images/logo.png' %}">
+        </header>
+        <nav class="nav-container">
+            {% block navbar %}
+                <div class="menu-container">
+                    <ul class="menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/create-post/">Create Post</a></li>
+                        <li><a href="/login/">Login</a></li>
+                    </ul>
+                </div>
+            {% endblock %}
+        </nav>
+        <main class="content-container">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="footer-container">
+            <h3 class="site-name">U-Share Notes</h3>
+            <p>&copy; MLDM Web Technologies, Inc.</p>
+        </footer>
+    </body>
+</html>

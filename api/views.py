@@ -1,4 +1,5 @@
 # Create your views here.
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -8,6 +9,21 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer, UserRegistrationSerializer
+
+
+def homepage(request):
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'posts.html', {'posts': posts})
+
+
+def login_page(request):
+    return render(request, 'login.html')
+
+def signup_page(request):
+    return render(request, 'signup.html')
+
+def create_post_page(request):
+    return render(request, 'create-post.html')
 
 
 class PostViewSet(viewsets.ModelViewSet):
