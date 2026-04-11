@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | u-share Notes</title>
+    <title>Sign Up | u-share Notes</title>
     <style>
         * { box-sizing: border-box; }
         body {
@@ -60,29 +60,40 @@
         }
         .message.success { background: #e6ffed; color: #1d6a31; border: 1px solid #c0f0d5; }
         .message.error { background: #ffe8e8; color: #8b1a1a; border: 1px solid #f2c3c3; }
+        .link-row {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .link-row a {
+            color: #667eea;
+            font-weight: 700;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1>Login</h1>
-        <p>Use your account to access your personal notes.</p>
+        <h1>Sign Up</h1>
+        <p>Create an account to access your personal notes.</p>
         <div id="message" class="message"></div>
-        <form id="loginForm">
+        <form id="signupForm">
             <label for="email">Email</label>
             <input type="email" id="email" required placeholder="you@example.com">
             <label for="password">Password</label>
             <input type="password" id="password" required placeholder="Enter password">
-            <button type="submit">Login</button>
+            <button type="submit">Create Account</button>
         </form>
-        <p style="margin-top: 18px; font-size: 14px; color: #666; text-align: center;">
-            Don't have an account? <a href="/signup/" style="color: #667eea; font-weight: 700; text-decoration: none;">Sign up</a>
+        <p class="link-row">
+            Already have an account? <a href="/login/">Login</a>
         </p>
     </div>
 
     <script>
         const apiUrl = '/api';
         const messageDiv = document.getElementById('message');
-        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
 
         function showMessage(text, type) {
             messageDiv.textContent = text;
@@ -94,28 +105,18 @@
             messageDiv.style.display = 'none';
         }
 
-        function redirectToPosts() {
-            window.location.href = '/posts/';
-        }
-
-        window.addEventListener('load', () => {
-            if (localStorage.getItem('authToken') && localStorage.getItem('userId')) {
-                redirectToPosts();
-            }
-        });
-
-        loginForm.addEventListener('submit', async (e) => {
+        signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             clearMessage();
 
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
-            const button = loginForm.querySelector('button');
+            const button = signupForm.querySelector('button');
             button.disabled = true;
-            button.textContent = 'Signing in...';
+            button.textContent = 'Creating account...';
 
             try {
-                const response = await fetch(`${apiUrl}/login/`, {
+                const response = await fetch(`${apiUrl}/signup/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,19 +125,20 @@
                 });
 
                 const data = await response.json();
-                if (response.ok && data.token) {
-                    localStorage.setItem('authToken', data.token);
-                    localStorage.setItem('userId', data.user_id);
-                    localStorage.setItem('userEmail', data.email);
-                    redirectToPosts();
+                if (response.ok) {
+                    showMessage('Account created successfully! Redirecting to login...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/login/';
+                    }, 1500);
                 } else {
-                    showMessage(data.error || 'Login failed. Check your credentials.', 'error');
+                    const errorText = data.email ? data.email[0] : data.password ? data.password[0] : data.error || 'Unable to create account.';
+                    showMessage(errorText, 'error');
                 }
             } catch (error) {
                 showMessage('Unable to reach server. Make sure Django is running.', 'error');
             } finally {
                 button.disabled = false;
-                button.textContent = 'Login';
+                button.textContent = 'Create Account';
             }
         });
     </script>

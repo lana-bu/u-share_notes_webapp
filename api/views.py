@@ -19,6 +19,10 @@ class LogoutPageView(TemplateView):
     template_name = 'api/logout.html'
 
 
+class SignupPageView(TemplateView):
+    template_name = 'api/signup.html'
+
+
 class PostsPageView(TemplateView):
     template_name = 'api/posts.html'
 
