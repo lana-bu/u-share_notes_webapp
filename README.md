@@ -7,5 +7,8 @@ This will become a web app for a notes-sharing platform. We are designing it for
 - Linking stylesheet to base template: https://stackoverflow.com/questions/9339226/how-to-load-css-in-django-templates
 - Template inheritance: https://unwiredlearning.com/blog/django-template-inheritance
 - HTML copyright symbol code: https://www.rapidtables.com/web/html/html-codes/html-code-copyright.html
+- Checking if user is logged in within template: https://www.delftstack.com/howto/django/django-check-logged-in-user/
+- Short on-click effect for button using CSS "active" attribute: https://www.geeksforgeeks.org/css/how-to-add-onclick-effect-using-css/
+- Getting a specific object from a database table: https://pypy-django.github.io/blog/2024/04/26/understanding-django-query-methods-objectsall-vs-get_object_or_404/
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/

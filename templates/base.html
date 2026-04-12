@@ -22,14 +22,14 @@
             {% block navbar %}
                 <div class="menu-container">
                     <ul class="menu">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
                         {% if user.is_authenticated %}
-                            <li><a href="/your-notes/">Your Notes</a></li>
-                            <li><a href="/create-post/">Create Post</a></li>
-                            <li><a href="/profile/">Manage Profile</a></li>
-                            <li><a href="/logout/">Login</a></li>
+                            <li><a href="{% url 'your-notes' %}">Your Notes</a></li>
+                            <li><a href="{% url 'create-post' %}">Create Post</a></li>
+                            <li><a href="{% url 'profile' %}">Manage Profile</a></li>
+                            <li><a href="{% url 'logout' %}">Login</a></li>
                         {% else %}
-                            <li><a href="/login/">Login</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
                         {% endif %}
                     </ul>
                 </div>

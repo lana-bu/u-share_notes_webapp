@@ -20,6 +20,7 @@ class Post(models.Model):
 
     # File handling
     notes_file = models.FileField(upload_to='notes/')
+    # Question from Lana: Where does notes/ go?
 
     # Optional / System fields
     rating = models.IntegerField(default=0)
