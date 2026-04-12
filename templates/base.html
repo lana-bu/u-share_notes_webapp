@@ -23,8 +23,12 @@
                 <div class="menu-container">
                     <ul class="menu">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/create-post/">Create Post</a></li>
-                        <li><a href="/login/">Login</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/create-post/">Create Post</a></li>
+                            <li><a href="/logout/">Login</a></li>
+                        {% else %}
+                            <li><a href="/login/">Login</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             {% endblock %}
