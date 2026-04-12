@@ -77,6 +77,8 @@ TEMPLATES = [
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN' # to allow iframe to embed files served by same host
+
 WSGI_APPLICATION = 'web_project.wsgi.application'
 
 

@@ -9,4 +9,10 @@
 
 {% block content %}
     <h1>specific post test</h1>
+    <object data="{{ post.notes_file.url }}" type="application/pdf" width="800" height="1200">
+        <p> <!-- fallback -->
+            Unable to preview PDF, view <a href="{{ post.notes_file.url }}">here</a>.
+        </p>
+    </object>
+    <a href="{{ post.notes_file.url }}" download><button class="btn">Download PDF</button></a>
 {% endblock %}

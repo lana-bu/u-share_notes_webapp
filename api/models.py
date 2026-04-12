@@ -19,8 +19,7 @@ class Post(models.Model):
     description = models.TextField(blank=True, null=True)
 
     # File handling
-    notes_file = models.FileField(upload_to='notes/')
-    # Question from Lana: Where does notes/ go?
+    notes_file = models.FileField(upload_to='notes/') # saved to media/notes/
 
     # Optional / System fields
     rating = models.IntegerField(default=0)

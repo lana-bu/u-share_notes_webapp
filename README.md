@@ -10,5 +10,7 @@ This will become a web app for a notes-sharing platform. We are designing it for
 - Checking if user is logged in within template: https://www.delftstack.com/howto/django/django-check-logged-in-user/
 - Short on-click effect for button using CSS "active" attribute: https://www.geeksforgeeks.org/css/how-to-add-onclick-effect-using-css/
 - Getting a specific object from a database table: https://pypy-django.github.io/blog/2024/04/26/understanding-django-query-methods-objectsall-vs-get_object_or_404/
+- URL pattern tips: https://www.hostinger.com/uk/tutorials/django-url-patterns
+- PDF previewer: https://www.w3docs.com/snippets/html/how-to-embed-pdf-in-html.html
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
