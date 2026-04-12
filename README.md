@@ -12,5 +12,6 @@ This will become a web app for a notes-sharing platform. We are designing it for
 - Getting a specific object from a database table: https://pypy-django.github.io/blog/2024/04/26/understanding-django-query-methods-objectsall-vs-get_object_or_404/
 - URL pattern tips: https://www.hostinger.com/uk/tutorials/django-url-patterns
 - PDF previewer: https://www.w3docs.com/snippets/html/how-to-embed-pdf-in-html.html
+- User account functions in Django: https://learndjango.com/tutorials/django-login-and-logout-tutorial
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/

@@ -138,3 +138,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+LOGIN_REDIRECT_URL = "/" # redirect user to home after login

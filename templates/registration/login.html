@@ -10,7 +10,12 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-    <h1>Login test</h1>
+    <h1>Log In</h1>
+        <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Log In</button>
+    </form>
     <p>If you don't already have an account, register for one <a href="{% url 'signup' %}">here</a>.
         <br>
         (Or <a href="{% url 'home' %}">browse notes as Guest</a>)
