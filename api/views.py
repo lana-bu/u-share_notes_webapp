@@ -25,6 +25,8 @@ def signup_page(request):
 def create_post_page(request):
     return render(request, 'create-post.html')
 
+def your_notes_page(request):
+    return render(request, 'your-notes.html')
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-created_at')
