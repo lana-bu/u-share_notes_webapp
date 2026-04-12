@@ -1,9 +1,9 @@
 :root {
     --primary-color: #003844;
-    --secondary-color: #69ebd0;
-    --text-color: #182825;
-    --accent-color: #c44536;
-    --reverse-text-color: #f5dbcb;
+    --secondary-color: #ffffff;
+    --accent-color: #69ebd0;
+    --text-color: #011f26;
+    --danger-color: #c44536;
     --spacing: 0.5em;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .content-section a {
-    color: var(--accent-color-2);
+    color: var(--accent-color);
 }
 
 .btn {
@@ -78,7 +78,24 @@ body {
 
 .btn:hover {
     cursor: pointer;
+    background-color: #5bcfb8;
+}
+
+.btn:active {
     background-color: var(--accent-color);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: var(--secondary-color)
+}
+
+.danger-btn:hover {
+    background-color: #e15b4c;
+}
+
+.danger-btn:active {
+    background-color: var(--danger-color);
 }
 
 /* mobile portrait layout (479px or less */
