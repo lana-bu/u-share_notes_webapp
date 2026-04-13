@@ -1,6 +1,7 @@
 # Create your views here.
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.views.generic import TemplateView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -10,6 +11,22 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer, UserRegistrationSerializer
+
+
+class LoginPageView(TemplateView):
+    template_name = 'api/login.html'
+
+
+class LogoutPageView(TemplateView):
+    template_name = 'api/logout.html'
+
+
+class SignupPageView(TemplateView):
+    template_name = 'api/signup.html'
+
+
+class PostsPageView(TemplateView):
+    template_name = 'api/posts.html'
 
 
 def homepage(request):
@@ -52,7 +69,7 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]  # Guests can read, users can post
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['semester', 'instructor_name']
+    filterset_fields = ['semester', 'instructor_name', 'user']
     search_fields = ['course_number', 'title', 'instructor_name']
 
     def perform_create(self, serializer):
@@ -77,7 +94,11 @@ class UserLoginView(APIView):
 
         if user:
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
+            return Response({
+                'token': token.key,
+                'user_id': user.id,
+                'email': user.email,
+            }, status=status.HTTP_200_OK)
         else:
             # Invalid credentials
             return Response({"error": "Invalid username or password"}, status=status.HTTP_401_UNAUTHORIZED)

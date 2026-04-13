@@ -21,5 +21,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("api.urls")),
+    path('api/', include('api.urls')),
+    path('', include('api.frontend_urls')),,
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # to access files in the media directory

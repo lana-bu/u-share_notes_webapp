@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | u-share Notes</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            width: min(420px, calc(100% - 32px));
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+            padding: 36px;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: #333;
+        }
+        p { color: #666; margin-bottom: 24px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+            border: 2px solid #e3e9f4;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.2s ease;
+        }
+        input:focus { border-color: #667eea; outline: none; }
+        button {
+            width: 100%;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .message {
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            display: none;
+            font-size: 14px;
+        }
+        .message.success { background: #e6ffed; color: #1d6a31; border: 1px solid #c0f0d5; }
+        .message.error { background: #ffe8e8; color: #8b1a1a; border: 1px solid #f2c3c3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Login</h1>
+        <p>Use your account to access your personal notes.</p>
+        <div id="message" class="message"></div>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" required placeholder="you@example.com">
+            <label for="password">Password</label>
+            <input type="password" id="password" required placeholder="Enter password">
+            <button type="submit">Login</button>
+        </form>
+        <p style="margin-top: 18px; font-size: 14px; color: #666; text-align: center;">
+            Don't have an account? <a href="/signup/" style="color: #667eea; font-weight: 700; text-decoration: none;">Sign up</a>
+        </p>
+    </div>
+
+    <script>
+        const apiUrl = '/api';
+        const messageDiv = document.getElementById('message');
+        const loginForm = document.getElementById('loginForm');
+
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+        }
+
+        function clearMessage() {
+            messageDiv.style.display = 'none';
+        }
+
+        function redirectToPosts() {
+            window.location.href = '/posts/';
+        }
+
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('authToken') && localStorage.getItem('userId')) {
+                redirectToPosts();
+            }
+        });
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessage();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const button = loginForm.querySelector('button');
+            button.disabled = true;
+            button.textContent = 'Signing in...';
+
+            try {
+                const response = await fetch(`${apiUrl}/login/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok && data.token) {
+                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('userId', data.user_id);
+                    localStorage.setItem('userEmail', data.email);
+                    redirectToPosts();
+                } else {
+                    showMessage(data.error || 'Login failed. Check your credentials.', 'error');
+                }
+            } catch (error) {
+                showMessage('Unable to reach server. Make sure Django is running.', 'error');
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Login';
+            }
+        });
+    </script>
+</body>
+</html>
