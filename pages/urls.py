@@ -10,5 +10,4 @@ urlpatterns = [
     path('edit-post/<int:post_id>/', edit_post_page, name='edit-post'),
     path('your-notes/', your_notes_page, name='your-notes'),
     path('post-details/<int:post_id>/', post_details_page, name='post-details'),
-    path('profile/', profile_page, name='profile'),
 ]

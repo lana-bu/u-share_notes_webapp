@@ -31,10 +31,6 @@ def post_details_page(request, post_id):
     post_details_url = reverse('post-details', kwargs={'post_id': post.id})
     return render(request, 'post-details.html', {'post': post, 'post_details_url': post_details_url})
 
-def profile_page(request):
-    profile_url = reverse('profile')
-    return render(request, 'profile.html', {'profile_url': profile_url})
-
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
