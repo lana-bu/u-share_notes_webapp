@@ -13,5 +13,6 @@ This will become a web app for a notes-sharing platform. We are designing it for
 - URL pattern tips: https://www.hostinger.com/uk/tutorials/django-url-patterns
 - PDF previewer: https://www.w3docs.com/snippets/html/how-to-embed-pdf-in-html.html
 - User account functions in Django: https://learndjango.com/tutorials/django-login-and-logout-tutorial
+- Serving media files in development mode: https://stackoverflow.com/questions/5517950/django-media-url-and-media-root
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
