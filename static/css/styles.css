@@ -17,14 +17,15 @@ body {
     font-size: 1.5rem;
     display: grid;
     grid-template-areas:
-        "header"
-        "nav"
-        "main"
-        "footer";
+        "header header"
+        "nav nav"
+        "sidebar main"
+        "footer footer";
 }
 
 .header-container  { grid-area: header; }
 .nav-container     { grid-area: nav; }
+.nav-sidebar       { grid-area: sidebar; }
 .content-container { grid-area: main; }
 .footer-container  { grid-area: footer; }
 
@@ -47,6 +48,7 @@ body {
 
 .nav-container a {
     color: var(--secondary-color);
+    display: flex;
 }
 
 .content-container {
@@ -61,32 +63,15 @@ body {
 .footer-container {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    margin-top: var(--spacing);
 }
 
+/* svg icons */
 svg { 
     width: 100%; /* scales to full size of container */
     height: auto;
 }
 
-/* account info in nav bar */
-.account-container {
-    font-size: 0.9em;
-    display: flex;
-    align-items: center;
-}
-
-.profile-container {
-    display: flex;
-    align-items: center;
-}
-
-.profile-icon-container {
-    width: 11%;
-    padding: 0.2em;
-}
-
-.profile-icon {
+.icon {
     fill: var(--secondary-color);
     stroke: var(--secondary-color);
     stroke-width: 16px;
@@ -98,12 +83,15 @@ svg {
     border-radius: 8px;
     background-color: var(--accent-color);
     color: var(--text-color);
-    font-family: Optima, 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-family: inherit;
     font-size: 1.2em;
     font-weight: bold;
     padding: var(--spacing);
     margin: var(--spacing);
-    align-self: center;
+    /* align button content in middle of button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover {
@@ -128,6 +116,48 @@ svg {
     background-color: var(--danger-color);
 }
 
+/* menu (hamburger) button */
+.menu-btn {
+    background-color: transparent;
+    width: 8%;
+    padding: 0;
+}
+
+.nav-sidebar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--spacing);
+    margin: 0;
+}
+
+.nav-sidebar a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.nav-sidebar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* account info in nav bar */
+.account-container {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon-container {
+    width: 11%;
+    padding: 0.2em;
+}
+
 /* mobile portrait layout (479px or less */
 @media only screen and (max-width: 479px) {
     
@@ -148,7 +178,5 @@ svg {
 
 /* desktop layout (1024px or more) */
 @media only screen and (min-width: 1024px) {
-    .content-section {
-        padding: 2em;
-    }
+    
 }
