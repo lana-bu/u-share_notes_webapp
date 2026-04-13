@@ -7,16 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Shared Notes</h1>
-    {% for post in posts %}
-        <div>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}</p>
-            <p>{{ post.description }}</p>
-            <small>Posted on {{ post.created_at }}</small>
-        </div>
-        <hr>
-    {% empty %}
-        <p>No notes have been shared yet.</p>
-    {% endfor %}
+    <h1>Create Post</h1>
+    {% if user.is_authenticated %}
+        (Post creation form)
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+    {% endif %}
 {% endblock %}

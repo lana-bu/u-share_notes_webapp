@@ -1,4 +1,18 @@
-<!DOCTYPE html>
-<html>
-    hello profile
-</html>
+{% extends "base.html" %}
+
+{% block title %}Profile Center | U-Share Notes{% endblock %}
+
+{% block description %}
+    <meta name="description" content="Search for notes posted by university students.">
+{% endblock %}
+
+{% block content %}
+    <h1>Profile Center</h1>
+    {% if user.is_authenticated %}
+        <h2>{{ user.username }}'s Profile</h2>
+        (change email, password and stuff)
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+    {% endif %}
+{% endblock %}
