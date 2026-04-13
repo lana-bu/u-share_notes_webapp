@@ -71,7 +71,7 @@ svg {
 
 /* account info in nav bar */
 .account-container {
-    font-size: 0.8em;
+    font-size: 0.9em;
     display: flex;
     align-items: center;
 }
@@ -82,7 +82,14 @@ svg {
 }
 
 .profile-icon-container {
-    width: 7%;
+    width: 11%;
+    padding: 0.2em;
+}
+
+.profile-icon {
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
+    stroke-width: 16px;
 }
 
 /* buttons */
@@ -93,6 +100,7 @@ svg {
     color: var(--text-color);
     font-family: Optima, 'Trebuchet MS', Arial, Helvetica, sans-serif;
     font-size: 1.2em;
+    font-weight: bold;
     padding: var(--spacing);
     margin: var(--spacing);
     align-self: center;
