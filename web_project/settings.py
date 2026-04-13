@@ -139,4 +139,5 @@ REST_FRAMEWORK = {
     ],
 }
 
-LOGIN_REDIRECT_URL = "/" # redirect user to home after login
+LOGIN_REDIRECT_URL = "home" # redirect user to homepage after login
+LOGOUT_REDIRECT_URL = "home" # redirect user to homepage after login

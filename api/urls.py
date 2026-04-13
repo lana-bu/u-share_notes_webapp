@@ -10,6 +10,7 @@ router.register(r'posts', PostViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path("accounts/", include("django.contrib.auth.urls")), # for account registration features
     path('api/signup/', UserRegistrationView.as_view(), name='api-signup'),
     path('api/login/', UserLoginView.as_view(), name='api-login'),
     path('api/logout/', UserLogoutView.as_view(), name='api-logout'),

@@ -22,5 +22,4 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("api.urls")),
-    path("accounts/", include("django.contrib.auth.urls")), # for account registration features
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # to access files in the media directory

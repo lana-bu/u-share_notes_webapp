@@ -28,6 +28,10 @@
                             <li><a href="{% url 'create-post' %}">Create Post</a></li>
                             <li><a href="{% url 'profile' %}">Manage Profile</a></li>
                             <li><a href="{% url 'logout' %}">Logout</a></li>
+                            <li><form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Log Out</button>
+                            </form></li>
                         {% else %}
                             <li><a href="{% url 'login' %}">Login</a></li>
                         {% endif %}
