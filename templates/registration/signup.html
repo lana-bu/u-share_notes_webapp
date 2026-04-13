@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Signup | U-Share Notes{% endblock %}
+{% block title %}Sign Up | U-Share Notes{% endblock %}
 
 {% block description %}
     <meta name="description" content="Sign up for a U-Share Notes account.">
@@ -10,7 +10,12 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-    <h1>Signup test</h1>
+    <h1>Sign Up</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Sign Up</button>
+    </form>
     <p>If you already have an account made, log into it <a href="{% url 'login' %}">here</a>.
     <br>
         (Or <a href="{% url 'home' %}">browse notes as Guest</a>)

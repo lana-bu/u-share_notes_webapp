@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
 from api.models import Post
 
 def homepage(request):
@@ -27,3 +29,8 @@ def post_details_page(request, post_id):
 def profile_page(request):
     profile_url = reverse('profile')
     return render(request, 'profile.html', {'profile_url': profile_url})
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
