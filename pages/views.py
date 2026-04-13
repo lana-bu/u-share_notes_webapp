@@ -9,13 +9,18 @@ def homepage(request):
     home_url = reverse('home')
     return render(request, 'home.html', {'posts': posts, 'home_url': home_url})
 
-def signup_page(request):
-    signup_url = reverse('signup')
-    return render(request, 'signup.html', {'signup_url': signup_url})
+def about_page(request):
+    about_url = reverse('about')
+    return render(request, 'about.html', {'about_url': about_url})
 
 def create_post_page(request):
     create_post_url = reverse('create-post')
     return render(request, 'create-post.html', {'create_post_url': create_post_url})
+
+def edit_post_page(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    edit_post_url = reverse('edit-post', kwargs={'post_id': post.id})
+    return render(request, 'edit-post.html', {'post': post, 'edit_post_url': edit_post_url})
 
 def your_notes_page(request):
     your_notes_url = reverse('your-notes')

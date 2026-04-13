@@ -23,6 +23,7 @@
                 <div class="menu-container">
                     <ul class="menu">
                         <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
                         {% if user.is_authenticated %}
                             <li><a href="{% url 'your-notes' %}">Your Notes</a></li>
                             <li><a href="{% url 'create-post' %}">Create Post</a></li>

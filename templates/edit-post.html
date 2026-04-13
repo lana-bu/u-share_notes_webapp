@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Create Post | U-Share Notes{% endblock %}
+
+{% block description %}
+    <meta name="description" content="Create a post to share your notes.">
+{% endblock %}
+
+{% block content %}
+    <h1>Create Post</h1>
+    {% if user.is_authenticated %}
+        (Post edit form, similar to creation form)
+        (need to also make sure logged in user matches user who made post)
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+    {% endif %}
+{% endblock %}
