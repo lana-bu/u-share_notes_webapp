@@ -38,14 +38,24 @@ body {
 }
 
 .nav-container {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     position: sticky;
     top: 0;
     display: flex;
-    flex-direction: column;
+}
+
+.nav-container a {
+    color: var(--secondary-color);
 }
 
 .content-container {
     color: var(--text-color);
+    padding: var(--spacing);
+}
+
+.content-container a {
+    color: var(--accent-color);
 }
 
 .footer-container {
@@ -54,16 +64,28 @@ body {
     margin-top: var(--spacing);
 }
 
-
-
-.content-section {
-    padding: var(--spacing);
+svg { 
+    width: 100%; /* scales to full size of container */
+    height: auto;
 }
 
-.content-section a {
-    color: var(--accent-color);
+/* account info in nav bar */
+.account-container {
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
 }
 
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon-container {
+    width: 7%;
+}
+
+/* buttons */
 .btn {
     border: none;
     border-radius: 8px;
