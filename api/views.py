@@ -34,14 +34,6 @@ def homepage(request):
     home_url = reverse('home')
     return render(request, 'home.html', {'posts': posts, 'home_url': home_url})
 
-def login_page(request):
-    login_url = reverse('login')
-    return render(request, 'login.html', {'login_url': login_url})
-
-def logout_page(request):
-    logout_url = reverse('logout')
-    return render(request, 'logout.html', {'logout_url': logout_url})
-
 def signup_page(request):
     signup_url = reverse('signup')
     return render(request, 'signup.html', {'signup_url': signup_url})
