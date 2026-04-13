@@ -14,7 +14,7 @@
         <form method="post">
         {% csrf_token %}
         {{ form }} <!-- provided by auth app -->
-        <button type="submit">Log In</button>
+        <button class='btn' type="submit">Log In</button>
     </form>
     <p>If you don't already have an account, register for one <a href="{% url 'signup' %}">here</a>.
         <br>
