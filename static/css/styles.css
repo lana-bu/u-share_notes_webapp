@@ -53,6 +53,7 @@ body {
     grid-area: main;
     color: var(--text-color);
     padding: var(--spacing) 2em;
+    text-align: center;
 }
 
 .content-container a {
