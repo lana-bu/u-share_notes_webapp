@@ -40,7 +40,7 @@
                             </div>
                             <span class="username">{{ user.username }}</span>
                         </div>
-                        <form action="{% url 'logout' %}" method="post">
+                        <form class='logout' action="{% url 'logout' %}" method="post">
                             {% csrf_token %}
                             <button class='btn' type="submit">Log Out</button>
                         </form>

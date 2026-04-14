@@ -52,7 +52,7 @@ body {
 .content-container {
     grid-area: main;
     color: var(--text-color);
-    padding: var(--spacing);
+    padding: var(--spacing) 2em;
 }
 
 .content-container a {
@@ -115,6 +115,7 @@ svg {
     font-weight: bold;
     padding: var(--spacing);
     margin: var(--spacing);
+    white-space: nowrap;
     /* align button content in middle of button */
     display: flex;
     justify-content: center;
@@ -150,7 +151,7 @@ svg {
 /* navigation bar contents */
 .menu-btn {
     background-color: transparent;
-    width: 5%;
+    width: 10%;
     padding: 0;
     margin-right: auto;
 }
@@ -160,7 +161,7 @@ svg {
 }
 
 .account-container {
-    font-size: 0.9em;
+    font-size: 0.6em;
     display: flex;
     align-items: center;
 }
@@ -175,6 +176,10 @@ svg {
     margin-left: auto;
     width: 11%;
     padding: 0.2em;
+}
+
+.logout {
+    width: fit-content;
 }
 
 /* popout navigation sidebar */
@@ -215,17 +220,33 @@ svg {
 
 /* mobile landscape layout (480px to 767px) */
 @media only screen and (min-width: 480px) {
+    .content-container {
+        padding: var(--spacing) 4em;
+    }
 
+    .menu-btn {
+        width: 8%;
+    }
+    
+    .account-container {
+        font-size: 0.9em;
+    }
 }
 
 /* tablet layout (768px to 1023px) */
 @media only screen and (min-width: 768px) {
     body {
         font-size: 1.8rem;
-    }    
+    }  
 }
 
 /* desktop layout (1024px or more) */
 @media only screen and (min-width: 1024px) {
-    
+    .content-container {
+        padding: var(--spacing) 8em;
+    }
+
+    .menu-btn {
+        width: 5%;
+    }
 }
