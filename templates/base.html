@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     {% endblock %}
     {% block js %}
-        <script src="{% static 'js/script.js' %}" async></script>
+        <script src="{% static 'javascript/script.js' %}" async></script>
     {% endblock %}
 </head>
     <body>
@@ -23,7 +23,7 @@
         </header>
         <nav class="nav-container">
             {% block navbar %}
-                <button class="btn menu-btn">
+                <button id="menu-btn" class="btn menu-btn">
                     <!-- doesn't need a div icon container since button is already containing it -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                         <path class="icon menu-icon" d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
@@ -50,7 +50,7 @@
                 </div>
             {% endblock %}
         </nav>
-        <aside class="nav-sidebar">
+        <aside id="nav-sidebar" class="nav-sidebar">
             <ul class="menu">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>

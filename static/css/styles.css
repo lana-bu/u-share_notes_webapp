@@ -144,7 +144,7 @@ svg {
     background-color: #003844e2;
     color: var(--secondary-color);
     padding: var(--spacing);
-    display: block;
+    display: none;
 }
 
 .menu {
