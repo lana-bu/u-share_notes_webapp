@@ -28,3 +28,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.course_number}"
+    
+    # TODO: add validateInput and createPost functions
+    # TODO: maybe create get functions for unit testing, unless we can just access like how we are in templates
