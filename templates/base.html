@@ -18,8 +18,8 @@
 </head>
     <body>
         <header class="header-container">
-            <h1 class="site-name site-name-large">U-Share Notes</h1>
-            <img class="site-logo" src="{% static 'images/logo.png' %}">
+            <h1 class="site-name site-name-large"><a href="{% url 'home' %}">U-Share Notes</a></h1>
+            <a class="logo-link" href="{% url 'home' %}"><img class="site-logo" src="{% static 'images/logo.png' %}"></a>
         </header>
         <nav class="nav-container">
             {% block navbar %}
@@ -64,7 +64,7 @@
             {% block content %}{% endblock %}
         </main>
         <footer class="footer-container">
-            <h3 class="site-name">U-Share Notes</h3>
+            <h1 class="site-name"><a href="{% url 'home' %}">U-Share Notes</a></h1>
             <p>&copy; 2026 MLDM Web Technologies, Inc.</p>
         </footer>
     </body>

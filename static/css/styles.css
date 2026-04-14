@@ -23,22 +23,20 @@ body {
         "footer footer";
 }
 
-.header-container  { grid-area: header; }
-.nav-container     { grid-area: nav; }
-.nav-sidebar       { grid-area: sidebar; }
-.content-container { grid-area: main; }
-.footer-container  { grid-area: footer; }
-
 .header-container, .footer-container {
     padding: var(--spacing);
-}
-
-.header-container {
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
 
+.header-container {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+}
+
 .nav-container {
+    grid-area: nav;
     background-color: var(--primary-color);
     color: var(--secondary-color);
     position: sticky;
@@ -52,6 +50,7 @@ body {
 }
 
 .content-container {
+    grid-area: main;
     color: var(--text-color);
     padding: var(--spacing);
 }
@@ -61,8 +60,32 @@ body {
 }
 
 .footer-container {
-    background-color: var(--primary-color);
+    grid-area: footer;
+    text-align: center;
+}
+
+/* site symbols */
+.site-name {
+    font-size: 1.3em;
+}
+
+.site-name a {
     color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.site-name-large {
+    font-size: 2em;
+    margin-right: auto;
+}
+
+.site-logo {
+    width: 100%;
+    height: auto;
+}
+
+.logo-link {
+    width: 8%;
 }
 
 /* svg icons */
@@ -121,6 +144,11 @@ svg {
     background-color: transparent;
     width: 5%;
     padding: 0;
+    margin-right: auto;
+}
+
+.menu-btn:hover {
+    background-color: #ffffff27;
 }
 
 .account-container {
@@ -130,17 +158,20 @@ svg {
 }
 
 .profile-container {
+    padding: var(--spacing);
     display: flex;
     align-items: center;
 }
 
 .profile-icon-container {
+    margin-left: auto;
     width: 11%;
     padding: 0.2em;
 }
 
 /* popout navigation sidebar */
 .nav-sidebar {
+    grid-area: sidebar;
     background-color: #003844e2;
     color: var(--secondary-color);
     padding: var(--spacing);
