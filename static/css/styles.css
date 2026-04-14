@@ -116,32 +116,13 @@ svg {
     background-color: var(--danger-color);
 }
 
-/* menu (hamburger) button */
+/* navigation bar contents */
 .menu-btn {
     background-color: transparent;
-    width: 8%;
+    width: 5%;
     padding: 0;
 }
 
-.nav-sidebar {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: var(--spacing);
-    margin: 0;
-}
-
-.nav-sidebar a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-.nav-sidebar .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* account info in nav bar */
 .account-container {
     font-size: 0.9em;
     display: flex;
@@ -156,6 +137,34 @@ svg {
 .profile-icon-container {
     width: 11%;
     padding: 0.2em;
+}
+
+/* popout navigation sidebar */
+.nav-sidebar {
+    background-color: #003844e2;
+    color: var(--secondary-color);
+    padding: var(--spacing);
+    display: block;
+}
+
+.menu {
+    position: sticky;
+    top: 150px; /* to not overlap with nav bar */
+    padding: 0 var(--spacing);
+    list-style: none;
+}
+
+.menu li {
+    padding: var(--spacing);
+}
+
+.menu a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
 
 /* mobile portrait layout (479px or less */
