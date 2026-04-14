@@ -45,7 +45,9 @@
                             <button class='btn' type="submit">Log Out</button>
                         </form>
                     {% else %}
-                        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+                        <a class="btn-link" href="{% url 'login' %}">
+                            <button class='btn'>Log In</button>
+                        </a>
                     {% endif %}
                 </div>
             {% endblock %}
@@ -65,7 +67,7 @@
         </main>
         <footer class="footer-container">
             <h1 class="site-name"><a href="{% url 'home' %}">U-Share Notes</a></h1>
-            <p>&copy; 2026 MLDM Web Technologies, Inc.</p>
+            <p class="copyright">&copy; 2026 MLDM Web Technologies, Inc.</p>
         </footer>
     </body>
 </html>

@@ -64,7 +64,7 @@ body {
     text-align: center;
 }
 
-/* site symbols */
+/* header and footer content */
 .site-name {
     font-size: 1.3em;
 }
@@ -86,6 +86,10 @@ body {
 
 .logo-link {
     width: 8%;
+}
+
+.copyright {
+    font-size: 0.5em;
 }
 
 /* svg icons */
@@ -137,6 +141,10 @@ svg {
 
 .danger-btn:active {
     background-color: var(--danger-color);
+}
+
+.btn-link {
+    text-decoration: none;
 }
 
 /* navigation bar contents */
