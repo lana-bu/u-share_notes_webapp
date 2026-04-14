@@ -16,6 +16,7 @@ This will become a web app for a notes-sharing platform. We are designing it for
 - PDF previewer: https://www.w3docs.com/snippets/html/how-to-embed-pdf-in-html.html
 - User account functions in Django: https://learndjango.com/tutorials/django-login-and-logout-tutorial
 - Serving media files in development mode: https://stackoverflow.com/questions/5517950/django-media-url-and-media-root
+- Creating requirements.txt file for continuous integration: https://www.learningaboutelectronics.com/Articles/How-to-create-a-requirements-txt-file-for-a-Django-project.php
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
 - Profile icon: https://fonts.google.com/icons?icon.size=64&icon.color=%23FFFFFF&icon.query=account&selected=Material+Symbols+Outlined:account_circle:FILL@0;wght@400;GRAD@0;opsz@48&icon.platform=web
