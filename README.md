@@ -17,3 +17,4 @@ This will become a web app for a notes-sharing platform. We are designing it for
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
 - Profile icon: https://fonts.google.com/icons?icon.size=64&icon.color=%23FFFFFF&icon.query=account&selected=Material+Symbols+Outlined:account_circle:FILL@0;wght@400;GRAD@0;opsz@48&icon.platform=web
+- Menu icon: https://fonts.google.com/icons?icon.size=64&icon.color=%23FFFFFF&icon.query=menu&selected=Material+Symbols+Outlined:menu:FILL@0;wght@400;GRAD@0;opsz@48&icon.platform=web
