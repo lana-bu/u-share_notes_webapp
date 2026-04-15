@@ -34,10 +34,21 @@ def create_post_page(request):
         'form': form,
     })
 
+@login_required
 def edit_post_page(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
+    post = get_object_or_404(Post, id=post_id, user=request.user)
     edit_post_url = reverse('edit-post', kwargs={'post_id': post.id})
-    return render(request, 'edit-post.html', {'post': post, 'edit_post_url': edit_post_url})
+    form = PostForm(request.POST or None, request.FILES or None, instance=post)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('post-details', post_id=post.id)
+
+    return render(request, 'edit-post.html', {
+        'post': post,
+        'edit_post_url': edit_post_url,
+        'form': form,
+    })
 
 def your_notes_page(request):
     your_notes_url = reverse('your-notes')

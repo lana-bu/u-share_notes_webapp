@@ -45,6 +45,9 @@
         </a>
 
         {% if user.is_authenticated and user == post.user %}
+            <a class="btn-link" href="{% url 'edit-post' post_id=post.id %}">
+                <button class="btn" type="button">Edit Note</button>
+            </a>
             <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
                 {% csrf_token %}
                 <button class="btn danger-btn" type="submit">Delete Note</button>

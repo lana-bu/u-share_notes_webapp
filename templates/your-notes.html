@@ -18,6 +18,7 @@
                 <small>Posted on {{ post.created_at }}</small>
                 <div class="post-actions">
                     <a class="btn-link" href="{% url 'post-details' post_id=post.id %}"><button class="btn">View Post</button></a>
+                    <a class="btn-link" href="{% url 'edit-post' post_id=post.id %}"><button class="btn" type="button">Edit Note</button></a>
                     <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
                         {% csrf_token %}
                         <button class="btn danger-btn" type="submit">Delete Note</button>
