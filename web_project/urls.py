@@ -14,10 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("api.urls"))
-]
+    path('api/', include('api.urls')),
+    path('accounts/', include("django.contrib.auth.urls")), # for account registration features
+    path('', include('pages.urls')), # separating API views from template rendering views
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # to access files in the media directory

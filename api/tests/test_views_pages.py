@@ -6,18 +6,18 @@ from django.urls import reverse
 def test_homepage_renders_posts_in_context(client, post_factory):
     post_factory(title="Homepage Notes")
 
-    response = client.get(reverse("homepage"))
+    response = client.get(reverse("home"))
 
     assert response.status_code == 200
-    assert "posts.html" in [template.name for template in response.templates]
+    assert "home.html" in [template.name for template in response.templates]
     assert list(response.context["posts"])[0].title == "Homepage Notes"
 
 
 @pytest.mark.parametrize(
     ("route_name", "template_name"),
     [
-        ("login", "login.html"),
-        ("signup-page", "signup.html"),
+        ("login", "registration/login.html"),
+        ("signup", "registration/signup.html"),
         ("create-post", "create-post.html"),
     ],
 )

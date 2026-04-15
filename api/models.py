@@ -19,7 +19,7 @@ class Post(models.Model):
     description = models.TextField(blank=True, null=True)
 
     # File handling
-    notes_file = models.FileField(upload_to='notes/')
+    notes_file = models.FileField(upload_to='notes/') # saved to media/notes/
 
     # Optional / System fields
     rating = models.IntegerField(default=0)
@@ -28,3 +28,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.course_number}"
+    
+    # TODO: add validateInput, createPost, updatePost, and deletePost functions
+    # make sure we can get data similarly to templates with Post.objects.all()

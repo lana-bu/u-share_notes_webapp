@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Login | U-Share Notes{% endblock %}
+
+{% block description %}
+    <meta name="description" content="Log in to your U-Share Notes account.">
+{% endblock %}
+
+<!-- don't show navbar -->
+{% block navbar %}{% endblock %}
+
+{% block content %}
+    <h1 class="content-header">Log In</h1>
+        <form method="post">
+        {% csrf_token %}
+        {{ form }} <!-- provided by auth app -->
+        <button class='btn' type="submit">Log In</button>
+    </form>
+    <p>If you don't already have an account, register for one <a href="{% url 'signup' %}">here</a>.
+        <br>
+        (Or <a href="{% url 'home' %}">browse notes as Guest</a>)
+    </p>
+{% endblock %}

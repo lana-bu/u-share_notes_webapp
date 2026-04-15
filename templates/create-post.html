@@ -7,16 +7,44 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Shared Notes</h1>
-    {% for post in posts %}
-        <div>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}</p>
-            <p>{{ post.description }}</p>
-            <small>Posted on {{ post.created_at }}</small>
+    <section class="create-post-shell">
+    <h1 class="content-header">Create Post</h1>
+    {% if user.is_authenticated %}
+        <p class="create-post-intro">Share your class notes with a clear title, course details, and your upload.</p>
+        <form class="note-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="form-errors">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% if form.errors %}
+            <p class="form-status">Please fix the highlighted fields and re-select your file before submitting again.</p>
+        {% endif %}
+
+        <div class="note-form-grid">
+        {% for field in form %}
+            <div class="note-form-field{% if field.errors %} has-error{% endif %}{% if field.name == 'description' %} note-form-field-wide{% endif %}{% if field.name == 'notes_file' %} note-form-field-wide{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="field-help">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p class="field-error">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
         </div>
-        <hr>
-    {% empty %}
-        <p>No notes have been shared yet.</p>
-    {% endfor %}
+
+        <div class="note-form-actions">
+            <button class="btn" type="submit">Submit Post</button>
+        </div>
+        </form>
+    {% else %}
+        <p class="create-post-intro">Log in to upload notes, organize them by course, and share them with other students.</p>
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+    {% endif %}
+    </section>
 {% endblock %}

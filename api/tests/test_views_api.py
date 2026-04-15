@@ -83,7 +83,7 @@ def test_post_list_supports_search(api_client, post_factory):
 @pytest.mark.django_db
 def test_signup_creates_user(api_client):
     response = api_client.post(
-        reverse("signup"),
+        reverse("api-signup"),
         {"email": "fresh@example.com", "password": "safe-password-123"},
         format="json",
     )
@@ -95,7 +95,7 @@ def test_signup_creates_user(api_client):
 @pytest.mark.django_db
 def test_signup_rejects_duplicate_email(api_client, user):
     response = api_client.post(
-        reverse("signup"),
+        reverse("api-signup"),
         {"email": user.email, "password": "safe-password-123"},
         format="json",
     )
@@ -133,7 +133,7 @@ def test_login_rejects_invalid_credentials(api_client, user):
 
 @pytest.mark.django_db
 def test_logout_deletes_authenticated_users_token(authenticated_client, auth_token):
-    response = authenticated_client.post(reverse("logout"))
+    response = authenticated_client.post(reverse("api-logout"))
 
     assert response.status_code == status.HTTP_200_OK
     assert response.data == {"message": "Successfully logged out."}
@@ -142,7 +142,7 @@ def test_logout_deletes_authenticated_users_token(authenticated_client, auth_tok
 
 @pytest.mark.django_db
 def test_logout_rejects_unauthenticated_user(api_client):
-    response = api_client.post(reverse("logout"))
+    response = api_client.post(reverse("api-logout"))
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert response.data == {"error": "You are not logged in."}

@@ -1,5 +1,3 @@
-# Create your views here.
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -10,22 +8,6 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer, UserRegistrationSerializer
 
-
-def homepage(request):
-    posts = Post.objects.all().order_by('-created_at')
-    return render(request, 'posts.html', {'posts': posts})
-
-
-def login_page(request):
-    return render(request, 'login.html')
-
-def signup_page(request):
-    return render(request, 'signup.html')
-
-def create_post_page(request):
-    return render(request, 'create-post.html')
-
-
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-created_at')
     serializer_class = PostSerializer
@@ -33,7 +15,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['semester', 'instructor_name']
-    search_fields = ['course_number', 'title', 'instructor_name']
+    search_fields = ['course_number', 'title', 'instructor_name'] # maybe "user" too
 
     def perform_create(self, serializer):
         # Automatically assign the logged-in user as the post owner
