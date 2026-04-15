@@ -39,7 +39,15 @@ def edit_post_page(request, post_id):
 
 def your_notes_page(request):
     your_notes_url = reverse('your-notes')
-    return render(request, 'your-notes.html', {'your_notes_url': your_notes_url})
+    posts = Post.objects.none()
+
+    if request.user.is_authenticated:
+        posts = Post.objects.filter(user=request.user).order_by('-created_at')
+
+    return render(request, 'your-notes.html', {
+        'your_notes_url': your_notes_url,
+        'posts': posts,
+    })
 
 def post_details_page(request, post_id):
     post = get_object_or_404(Post, id=post_id)
