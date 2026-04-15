@@ -3,35 +3,137 @@
 {% block title %}Your Notes | U-Share Notes{% endblock %}
 
 {% block description %}
-    <meta name="description" content="View the notes you've shared.">
+<meta name="description" content="View the notes you've shared.">
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<style>
+
+/* Page container */
+.notes-page {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header */
+.notes-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Card style */
+.note-card {
+    background: linear-gradient(180deg, #f6fffd 0%, #eef7f8 100%);
+    border: 1px solid #cbe2e0;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Typography */
+.note-title {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.note-meta {
+    color: #31515a;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.note-desc {
+    margin: 0.5rem 0 1rem;
+}
+
+.note-date {
+    font-size: 0.8rem;
+    color: #6b8b91;
+}
+
+/* Actions */
+.post-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Keep buttons consistent */
+.post-actions .btn {
+    display: inline-flex;
+}
+
+/* Delete button tweak */
+.danger-btn {
+    background: #e74c3c;
+}
+
+.danger-btn:hover {
+    background: #c0392b;
+}
+
+/* Empty state */
+.empty-msg {
+    text-align: center;
+    color: #31515a;
+    margin-top: 2rem;
+}
+
+</style>
 {% endblock %}
 
 {% block content %}
-    <h1 class="content-header">Your Notes</h1>
+
+<div class="notes-page">
+
+    <h1 class="content-header notes-header">Your Notes</h1>
+
     {% if user.is_authenticated %}
         <div class="post-list">
         {% for post in posts %}
-            <div>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}</p>
-                <p>{{ post.description }}</p>
-                <small>Posted on {{ post.created_at }}</small>
+            <div class="note-card">
+                <h2 class="note-title">{{ post.title }}</h2>
+
+                <p class="note-meta">
+                    {{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}
+                </p>
+
+                <p class="note-desc">{{ post.description }}</p>
+
+                <small class="note-date">Posted on {{ post.created_at }}</small>
+
                 <div class="post-actions">
-                    <a class="btn-link" href="{% url 'post-details' post_id=post.id %}"><button class="btn">View Post</button></a>
-                    <a class="btn-link" href="{% url 'edit-post' post_id=post.id %}"><button class="btn" type="button">Edit Note</button></a>
+                    <a href="{% url 'post-details' post_id=post.id %}" class="btn-link">
+                        <span class="btn">View</span>
+                    </a>
+
+                    <a href="{% url 'edit-post' post_id=post.id %}" class="btn-link">
+                        <span class="btn">Edit</span>
+                    </a>
+
                     <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
                         {% csrf_token %}
-                        <button class="btn danger-btn" type="submit">Delete Note</button>
+                        <button class="btn danger-btn" type="submit">Delete</button>
                     </form>
                 </div>
             </div>
-            <hr>
         {% empty %}
-            <p>You have not shared any notes yet.</p>
+            <p class="empty-msg">You haven’t shared any notes yet.</p>
         {% endfor %}
         </div>
     {% else %}
-        <p>You must be logged in to use this feature.</p>
-        <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
+        <p class="empty-msg">You must be logged in to use this feature.</p>
+        <div style="text-align:center;">
+            <a href="{% url 'login' %}" class="btn-link">
+                <span class="btn">Log In</span>
+            </a>
+        </div>
     {% endif %}
+
+</div>
+
 {% endblock %}
