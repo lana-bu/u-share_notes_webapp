@@ -6,45 +6,119 @@
     <meta name="description" content="Learn more about U-Share Notes, a platform for students to share and discover academic notes.">
 {% endblock %}
 
+{% block css %}
+{{ block.super }}
+<style>
+
+/* Scope everything to About page only */
+.about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.about-page p {
+    line-height: 1.5;
+}
+
+/* Intro text */
+.about-intro {
+    text-align: center;
+    max-width: 45rem;
+    margin: 0 auto 2rem;
+    color: #31515a;
+}
+
+/* Card sections */
+.about-section {
+    background: linear-gradient(180deg, #f6fffd 0%, #eef7f8 100%);
+    border: 1px solid #cbe2e0;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Lists */
+.about-section ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.about-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* CTA */
+.about-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Fix global .btn flex behavior locally */
+.about-cta .btn {
+    display: inline-flex;
+}
+
+</style>
+{% endblock %}
+
 {% block content %}
+
+<div class="about-page">
+
     <h1 class="content-header">About U-Share Notes</h1>
 
-    <p>
+    <p class="about-intro">
         <strong>U-Share Notes</strong> is a platform designed to help university students share and discover academic notes with ease.
-        Whether you're reviewing for exams, catching up on missed lectures, or looking for different perspectives on course material,
-        U-Share Notes makes collaboration simple and accessible.
     </p>
 
-    <h2>What You Can Do</h2>
-    <ul>
-        <li>Upload and share your lecture notes as PDFs</li>
-        <li>Browse notes by course, instructor, or university</li>
-        <li>Preview and download study materials instantly</li>
-        <li>Manage and edit your own uploaded notes</li>
-    </ul>
+    <div class="about-section">
+        <h2>What You Can Do</h2>
+        <ul>
+            <li>Upload and share your lecture notes as PDFs</li>
+            <li>Browse notes by course, instructor, or university</li>
+            <li>Preview and download study materials instantly</li>
+            <li>Manage your uploaded notes</li>
+        </ul>
+    </div>
 
-    <h2>Our Mission</h2>
-    <p>
-        Our goal is to create a collaborative academic environment where students can support each other’s learning.
-        By making high-quality notes more accessible, we aim to improve study efficiency and academic success.
-    </p>
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            Create a collaborative academic environment where students help each other succeed.
+        </p>
+    </div>
 
-    <h2>Who It's For</h2>
-    <p>
-        U-Share Notes is built for students across all universities and disciplines.
-        Whether you're in engineering, business, science, or the arts, you can benefit from shared knowledge.
-    </p>
+    <div class="about-section">
+        <h2>Who It's For</h2>
+        <p>
+            Built for students across all disciplines.
+        </p>
+    </div>
 
-    <h2>Future Features</h2>
-    <ul>
-        <li>Search and filtering by course and university</li>
-        <li>Ratings and feedback on notes</li>
-        <li>Bookmarks and saved notes</li>
-        <li>Commenting and discussion system</li>
-    </ul>
+    <div class="about-section">
+        <h2>Future Features</h2>
+        <ul>
+            <li>Search and filtering</li>
+            <li>Ratings and feedback</li>
+            <li>Bookmarks</li>
+            <li>Comments</li>
+        </ul>
+    </div>
 
-    <h2>Get Started</h2>
-    <p>
-        Ready to contribute? Create an account, upload your notes, and start helping other students today.
-    </p>
+    <div class="about-cta">
+        <a href="{% url 'create-post' %}" class="btn-link">
+            <span class="btn">Start Sharing Notes</span>
+        </a>
+    </div>
+
+</div>
+
 {% endblock %}
