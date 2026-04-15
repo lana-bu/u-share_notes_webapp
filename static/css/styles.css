@@ -428,6 +428,48 @@ svg {
     min-width: 12rem;
 }
 
+/* ===== Shared Page Layout ===== */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Optional intro / spacing helper */
+.page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Card Hover Enhancement (used everywhere) ===== */
+.note-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 55px rgba(0, 56, 68, 0.12);
+}
+
+/* ===== Slight Typography Improvements ===== */
+.note-card-meta,
+.note-card-submeta {
+    font-size: 0.85em;
+    color: #4f7078;
+}
+
+.note-card-date {
+    font-size: 0.75em;
+    color: #4f7078;
+}
+
+/* ===== Empty State ===== */
+.post-list > p {
+    text-align: center;
+    color: #4f7078;
+    margin-top: 2rem;
+}
+
 /* mobile portrait layout (479px or less */
 @media only screen and (max-width: 479px) {
     body {
