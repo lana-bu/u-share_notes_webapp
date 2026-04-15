@@ -39,12 +39,21 @@
 
     <br><br>
 
-    <a class="btn-link" href="{{ post.notes_file.url }}" download>
-        <button class="btn">Download Note</button>
-    </a>
+    <div class="post-actions">
+        <a class="btn-link" href="{{ post.notes_file.url }}" download>
+            <button class="btn">Download Note</button>
+        </a>
 
-    <a class="btn-link" href="{% url 'home' %}">
-        <button class="btn">Back to Home</button>
-    </a>
+        {% if user.is_authenticated and user == post.user %}
+            <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn danger-btn" type="submit">Delete Note</button>
+            </form>
+        {% endif %}
+
+        <a class="btn-link" href="{% url 'home' %}">
+            <button class="btn">Back to Home</button>
+        </a>
+    </div>
 
 {% endblock %}

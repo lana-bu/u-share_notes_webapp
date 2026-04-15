@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
+from django.views.decorators.http import require_POST
 from api.forms import PostForm
 from api.models import Post
 
@@ -53,6 +55,17 @@ def post_details_page(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     post_details_url = reverse('post-details', kwargs={'post_id': post.id})
     return render(request, 'post-details.html', {'post': post, 'post_details_url': post_details_url})
+
+@login_required
+@require_POST
+def delete_post_page(request, post_id):
+    post = get_object_or_404(Post, id=post_id, user=request.user)
+
+    if post.notes_file:
+        post.notes_file.delete(save=False)
+
+    post.delete()
+    return redirect('your-notes')
 
 class SignUpView(CreateView):
     form_class = UserCreationForm

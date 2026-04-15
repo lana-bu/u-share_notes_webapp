@@ -223,6 +223,20 @@ svg {
     text-align: center;
 }
 
+.post-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.inline-form {
+    display: inline-flex;
+    margin: 0;
+}
+
 /* create post form */
 .create-post-shell {
     max-width: 980px;
