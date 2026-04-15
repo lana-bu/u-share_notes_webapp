@@ -5,13 +5,36 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.views.decorators.http import require_POST
+from django.db.models import Q
 from api.forms import PostForm
 from api.models import Post
 
 def homepage(request):
     posts = Post.objects.all().order_by('-created_at')
+
+    # filter by university/instructor
+    school_query = request.GET.get('q-school')
+    if school_query:
+        posts = posts.filter(
+            Q(university_name__icontains=school_query) | Q(instructor_name__icontains=school_query)
+        )
+
+    # filter by course name/number
+    course_query = request.GET.get('q-course')
+    if course_query:
+        posts = posts.filter(
+            Q(course_name__icontains=course_query) | Q(course_number__icontains=course_query)
+        )
+
+    # filter by title/description
+    name_query = request.GET.get('q-name')
+    if name_query:
+        posts = posts.filter(
+            Q(title__icontains=name_query) | Q(description__icontains=name_query)
+        )
+
     home_url = reverse('home')
-    return render(request, 'home.html', {'posts': posts, 'home_url': home_url})
+    return render(request, 'home.html', {'posts': posts, 'school_query': school_query, 'course_query': course_query, 'name_query': name_query, 'home_url': home_url})
 
 def about_page(request):
     about_url = reverse('about')
