@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
+from api.forms import PostForm
 from api.models import Post
 
 def homepage(request):
@@ -15,7 +16,21 @@ def about_page(request):
 
 def create_post_page(request):
     create_post_url = reverse('create-post')
-    return render(request, 'create-post.html', {'create_post_url': create_post_url})
+    form = PostForm(request.POST or None, request.FILES or None)
+
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            form.add_error(None, 'You must be logged in to create a post.')
+        elif form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('create-post')
+
+    return render(request, 'create-post.html', {
+        'create_post_url': create_post_url,
+        'form': form,
+    })
 
 def edit_post_page(request, post_id):
     post = get_object_or_404(Post, id=post_id)
