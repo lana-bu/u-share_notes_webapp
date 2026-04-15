@@ -310,9 +310,31 @@ svg {
     margin: 0;
 }
 
-/* search styling */
-.search {
+/* search form styling */
+.search-toggle-btn {
+    font-size: 0.8em;
+    background-color: transparent;
+}
+
+.search-toggle-btn:hover {
+    background-color: #69ebd150;
+}
+
+.search-toggle-btn:active {
+    background-color: #69ebd184;
+}
+
+.search-form {
     display: none;
+    margin: var(--spacing);
+}
+
+.search-form-field {
+    margin: var(--spacing);
+}
+
+.search-btn {
+    justify-self: center;
 }
 
 /* create post form */
@@ -666,6 +688,10 @@ svg {
 
 .danger-btn:hover {
     background: #c0392b;
+}
+
+.danger-btn:active {
+    background: #e74c3c;
 }
 
 /* Login Page */

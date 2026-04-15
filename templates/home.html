@@ -11,25 +11,25 @@
 {% block content %}
     <div class="page-container">
         <h1 class="content-header page-header">Shared Notes</h1>
-        <button id="search-toggle-btn" class="btn">Expand Search ˅</button>
+        <button id="search-toggle-btn" class="btn search-toggle-btn">Expand Search ˅</button>
 
-        <form id='search' class='search' method='get' action="{% url 'home' %}">
-            <div class='form-input-group search-bar'>
+        <form id='search' class='note-form search-form' method='get' action="{% url 'home' %}">
+            <div class='note-form-field search-form-field'>
                 <label for="q-name">Title/Description: </label>
-                <input type="text" name='q-name' class="search-input" placeholder='Search for title or description...' value="{{name_query}}" />
+                <input type="text" name='q-name' placeholder='Search for title or description...' value="{{name_query | default_if_none:''}}" />
             </div>
 
-            <div class='form-input-group search-bar'>
+            <div class='note-form-field search-form-field'>
                 <label for="q-course">Course Name/#: </label>
-                <input type="text" name='q-course' class="search-input" placeholder='Search for course name or #...' value="{{course_query}}" />
+                <input type="text" name='q-course' placeholder='Search for course name or #...' value="{{course_query | default_if_none:''}}" />
             </div>
 
-            <div class='form-input-group search-bar'>
+            <div class='note-form-field search-form-field'>
                 <label for="q-school">University/Instructor: </label>
-                <input type="text" name='q-school' class="search-input" placeholder='Search for univeristy or instructor...' value="{{school_query}}" />
+                <input type="text" name='q-school' placeholder='Search for univeristy or instructor...' value="{{school_query | default_if_none:''}}" />
             </div>
 
-            <button type="submit" class="btn">Search</button>
+            <button type="submit" class="btn search-btn">Search</button>
         </form>
 
         <div class="post-list">
