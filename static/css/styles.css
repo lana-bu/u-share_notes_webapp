@@ -218,6 +218,7 @@ svg {
     text-align: center;
 }
 
+/* homepage contents */
 .message-stack {
     max-width: 980px;
     margin: 0 auto 1rem;
@@ -307,6 +308,11 @@ svg {
 .inline-form {
     display: inline-flex;
     margin: 0;
+}
+
+/* search styling */
+.search {
+    display: none;
 }
 
 /* create post form */

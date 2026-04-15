@@ -29,5 +29,3 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} - {self.course_number}"
     
-    # TODO: add validateInput, createPost, updatePost, and deletePost functions
-    # make sure we can get data similarly to templates with Post.objects.all()

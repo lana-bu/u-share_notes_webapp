@@ -6,7 +6,10 @@ if (document.readyState == 'loading') {
 
 function ready() {
     const menuButton = document.getElementById('menu-btn');
-    menuButton.addEventListener('click', () => toggleSidebar());
+    const searchToggleButton = document.getElementById('search-toggle-btn');
+
+    menuButton.addEventListener('click', toggleSidebar);
+    searchToggleButton.addEventListener('click', toggleSearch);
 }
 
 function toggleSidebar() {
@@ -16,5 +19,18 @@ function toggleSidebar() {
         sidebar.style.display = "none";
     } else {
         sidebar.style.display = "block";
+    }
+}
+
+function toggleSearch(event) {
+    const buttonClicked = event.target;
+    const searchForm = document.getElementById('search');
+
+    if (searchForm.style.display == "block") {
+        buttonClicked.innerText = "Expand Search ˅";
+        searchForm.style.display = "none";
+    } else {
+        buttonClicked.innerText = "Collapse Search ˄";
+        searchForm.style.display = "block";
     }
 }

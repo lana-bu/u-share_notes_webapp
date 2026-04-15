@@ -104,6 +104,22 @@
 
 {% block content %}
     <h1 class="content-header">Shared Notes</h1>
+    <button id="search-toggle-btn" class="btn">Expand Search ˅</button>
+    <form id='search' class='search' method='get' action="{% url 'home' %}">
+        <div class='form-input-group search-bar'>
+            <label for="q-name">Title/Description: </label>
+            <input type="text" name='q-name' class="search-input" placeholder='Search for title or description...' value="" />
+        </div>
+        <div class='form-input-group search-bar'>
+            <label for="q-course">Course Name/#: </label>
+            <input type="text" name='q-course' class="search-input" placeholder='Search for course name or #...' value="" />
+        </div>
+        <div class='form-input-group search-bar'>
+            <label for="q-school">University/Instructor: </label>
+            <input type="text" name='q-school' class="search-input" placeholder='Search for univeristy or instructor...' value="" />
+        </div>
+        <button type="submit" class="btn">Search</button>               
+    </form>
     <div class="post-list">
     {% for post in posts %}
         <article class="note-card">
