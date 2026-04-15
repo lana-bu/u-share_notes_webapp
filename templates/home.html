@@ -16,17 +16,17 @@
         <form id='search' class='search' method='get' action="{% url 'home' %}">
             <div class='form-input-group search-bar'>
                 <label for="q-name">Title/Description: </label>
-                <input type="text" name='q-name' class="search-input" placeholder='Search for title or description...' value="" />
+                <input type="text" name='q-name' class="search-input" placeholder='Search for title or description...' value="{{name_query}}" />
             </div>
 
             <div class='form-input-group search-bar'>
                 <label for="q-course">Course Name/#: </label>
-                <input type="text" name='q-course' class="search-input" placeholder='Search for course name or #...' value="" />
+                <input type="text" name='q-course' class="search-input" placeholder='Search for course name or #...' value="{{course_query}}" />
             </div>
 
             <div class='form-input-group search-bar'>
                 <label for="q-school">University/Instructor: </label>
-                <input type="text" name='q-school' class="search-input" placeholder='Search for univeristy or instructor...' value="" />
+                <input type="text" name='q-school' class="search-input" placeholder='Search for univeristy or instructor...' value="{{school_query}}" />
             </div>
 
             <button type="submit" class="btn">Search</button>
