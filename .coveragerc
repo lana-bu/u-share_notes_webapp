@@ -1,0 +1,15 @@
+[run]
+data_file = .coverage.pytest
+source =
+    api
+    web_project
+omit =
+    */migrations/*
+    */__pycache__/*
+    */tests/*
+    manage.py
+
+[report]
+fail_under = 85
+show_missing = True
+skip_covered = False
