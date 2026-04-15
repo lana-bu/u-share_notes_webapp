@@ -668,6 +668,140 @@ svg {
     background: #c0392b;
 }
 
+/* Login Page */
+
+.login-page {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* form layout */
+.login-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* form fields spacing */
+.login-page form p {
+    margin-bottom: 1rem;
+}
+
+/* Django input styling */
+.login-page input,
+.login-page select,
+.login-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus effect */
+.login-page input:focus,
+.login-page select:focus,
+.login-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* login button center */
+.login-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.login-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.login-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* SIGNUP PAGE */
+
+.signup-page {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* form layout */
+.signup-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Django default <p> wrappers */
+.signup-page form p {
+    margin-bottom: 1rem;
+}
+
+/* inputs from  form */
+.signup-page input,
+.signup-page select,
+.signup-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus state */
+.signup-page input:focus,
+.signup-page select:focus,
+.signup-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* button alignment */
+.signup-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.signup-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.signup-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-links a:hover {
+    text-decoration: underline;
+}
+
 /* mobile portrait layout (479px or less */
 @media only screen and (max-width: 479px) {
     body {
