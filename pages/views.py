@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
@@ -27,6 +28,7 @@ def create_post_page(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
+            messages.success(request, 'Post Submitted!')
             return redirect('create-post')
 
     return render(request, 'create-post.html', {

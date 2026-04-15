@@ -63,6 +63,13 @@
             </ul>
         </aside>
         <main id="content-container" class="content-container">
+            {% if messages %}
+                <div class="message-stack">
+                    {% for message in messages %}
+                        <div class="site-message {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
             {% block content %}{% endblock %}
         </main>
         <footer class="footer-container">

@@ -218,10 +218,29 @@ svg {
     text-align: center;
 }
 
-/* homepage contents */
+.message-stack {
+    max-width: 980px;
+    margin: 0 auto 1rem;
+}
+
+.site-message {
+    border-radius: 18px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.site-message.success {
+    background-color: #e9fbf5;
+    border-color: #9dd7c2;
+    color: #0f5a4a;
+}
+
 .post-list {
     max-width: 900px;
-    margin: 0 auto 0 -7rem;
+    margin: 0 auto;
     display: grid;
     gap: 1.25rem;
 }
