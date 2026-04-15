@@ -53,7 +53,6 @@ body {
     grid-area: main;
     color: var(--text-color);
     padding: var(--spacing) 2em;
-    text-align: center;
 }
 
 .content-container a {
@@ -212,6 +211,16 @@ svg {
 
 .menu a:hover {
     text-decoration: underline;
+}
+
+/* general contents of content container */
+.content-header {
+    text-align: center;
+}
+
+/* homepage contents */
+.post-list {
+    text-align: center;
 }
 
 /* mobile portrait layout (479px or less */

@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Your Notes</h1>
+    <h1 class="content-header">Your Notes</h1>
     {% if user.is_authenticated %}
         (list display of user's notes, allow editing)
     {% else %}
-        <p>You are not logged in</p>
+        <p>You must be logged in to use this feature.</p>
         <a href="{% url 'login' %}"><button class='btn'>Log In</button></a>
     {% endif %}
 {% endblock %}

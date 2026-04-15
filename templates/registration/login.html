@@ -10,7 +10,7 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-    <h1>Log In</h1>
+    <h1 class="content-header">Log In</h1>
         <form method="post">
         {% csrf_token %}
         {{ form }} <!-- provided by auth app -->
