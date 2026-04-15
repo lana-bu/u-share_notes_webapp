@@ -220,7 +220,60 @@ svg {
 
 /* homepage contents */
 .post-list {
+    max-width: 900px;
+    margin: 0 auto 0 -7rem;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.note-card {
     text-align: center;
+    background: linear-gradient(180deg, #f9fffe 0%, #eef7f8 100%);
+    border: 1px solid #c7dfdc;
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem 1.4rem;
+}
+
+.note-card-tag {
+    margin: 0 0 0.65rem;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c6a73;
+}
+
+.note-card-title {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.note-card-meta {
+    margin: 0.5rem 0 0;
+    font-weight: 700;
+}
+
+.note-card-submeta {
+    margin: 0.3rem 0 0;
+    color: #49656d;
+}
+
+.note-card-description {
+    margin: 1rem auto 0;
+    max-width: 34rem;
+    line-height: 1.45;
+}
+
+.note-card-description-muted {
+    color: #67818a;
+    font-style: italic;
+}
+
+.note-card-date {
+    margin: 1rem 0 0;
+    font-size: 0.72em;
+    color: #5b767e;
 }
 
 .post-actions {
