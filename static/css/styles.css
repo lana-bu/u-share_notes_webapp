@@ -441,15 +441,15 @@ svg {
     margin-bottom: 1.5rem;
 }
 
-/* ===== Card Hover Enhancement (used everywhere) ===== */
+/* ===== Card Hover Enhancement (used everywhere) =====
 .note-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+} */
 
-.note-card:hover {
+/* .note-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 22px 55px rgba(0, 56, 68, 0.12);
-}
+} */
 
 /* ===== Slight Typography Improvements ===== */
 .note-card-meta,
