@@ -1,17 +1,18 @@
 # u-share_notes_webapp
-U-Share Notes is a platform designed to help university students share and discover academic notes with ease. Our group designed this web app for our CIS 376 (Software Engineering II) term project.
+U-Share Notes is a platform designed to help university students share and discover academic notes with ease. We used the Django web framework to use Python code for the back-end and connect it seamlessly with the front-end. Our group designed this web app for our CIS 376 (Software Engineering II) term project.
 
-## Quality Checks
-- `python3 manage.py check`
-- `pytest`
-- `pytest --cov`
-
-## Test Setup
+## Testing
+### Test Setup
 Install the Python dependencies before running the quality checks:
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
+
+### Quality Checks
+- `python3 manage.py check`
+- `pytest`
+- `pytest --cov`
 
 ## Sources
 ### Code Help
@@ -33,5 +34,8 @@ python3 -m pip install -r requirements.txt
 - Hosting webapp on PythonAnywhere: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Deployment#update_your_application_repository_in_github
 - Javascript for-of loop: https://stackoverflow.com/questions/9329446/loop-for-each-over-an-array-in-javascript
 - Getting the count of objects of a model: https://stackoverflow.com/questions/5439901/how-to-get-the-count-of-objects-in-a-queryset-django
+
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
+- Menu icon: https://fonts.google.com/icons?icon.size=64&icon.color=%23FFFFFF&icon.query=menu&selected=Material+Symbols+Outlined:menu:FILL@0;wght@400;GRAD@0;opsz@48&icon.platform=web
+- Profile icon: https://fonts.google.com/icons?icon.size=64&icon.color=%23FFFFFF&icon.query=profile&selected=Material+Symbols+Outlined:account_circle:FILL@0;wght@400;GRAD@0;opsz@48&icon.platform=web
