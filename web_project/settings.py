@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = [ 'lanabu.pythonanywhere.com' ]
+ALLOWED_HOSTS = [ 'lanabu.pythonanywhere.com', '127.0.0.1' ]
 
 
 # Application definition
@@ -159,3 +159,5 @@ LOGOUT_REDIRECT_URL = "home" # redirect user to homepage after login
 # needed for production deployment
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = ['https://lanabu.pythonanywhere.com']
