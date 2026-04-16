@@ -1,6 +1,15 @@
 # u-share_notes_webapp
 U-Share Notes is a platform designed to help university students share and discover academic notes with ease. We used the Django web framework to use Python code for the back-end and connect it seamlessly with the front-end. Our group designed this web app for our CIS 376 (Software Engineering II) term project.
 
+## Run Instructions
+You can easily view and use the webapp by going to https://lanabu.pythonanywhere.com/. If you want to run the web app locally on your computer, follow the instructions below.
+
+### Step 1: ...
+...
+
+### Step 2: ...
+...
+
 ## Testing
 ### Test Setup
 Install the Python dependencies before running the quality checks:
