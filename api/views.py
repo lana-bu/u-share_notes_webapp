@@ -1,18 +1,12 @@
-# Create your views here.
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
-from rest_framework import request, viewsets, filters, status
+from rest_framework import viewsets, filters, status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer, UserRegistrationSerializer
-from django.shortcuts import redirect
-from .forms import PostForm
-from django.contrib.auth.decorators import login_required
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-created_at')
@@ -57,22 +51,3 @@ class UserLogoutView(APIView):
             request.user.auth_token.delete()
             return Response({"message": "Successfully logged out."}, status=status.HTTP_200_OK)
         return Response({"error": "You are not logged in."}, status=status.HTTP_400_BAD_REQUEST)
-    
-
-
-def create_post_page(request):
-    form = PostForm(request.POST or None, request.FILES or None)
-
-    if request.method == "POST":
-        if form.is_valid():
-            post = form.save(commit=False)
-
-            # temporary user so it doesn't break
-            post.user = User.objects.first()
-
-            post.save()
-            return redirect("create_post")
-
-    return render(request, "create-post.html", {
-        "form": form
-    })
