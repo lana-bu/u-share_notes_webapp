@@ -40,9 +40,15 @@ Before starting, make sure you've installed all of the necessary dependencies by
 
 ### Quality Checks
 Run the following commands within the project directory to perform the tests:
-- `python3 manage.py check`
-- `pytest`
-- `pytest --cov`
+- ```bash
+  python3 manage.py check
+  ```
+- ```bash
+  pytest
+  ```
+- ```bash
+  pytest --cov
+  ```
 
 ## Sources
 ### Code Help
