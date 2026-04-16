@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_filters',
     'api',
     'corsheaders',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,8 @@ TEMPLATES = [
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN' # to allow iframe to embed files served by same host
 
 WSGI_APPLICATION = 'web_project.wsgi.application'
 
@@ -136,3 +139,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+LOGIN_REDIRECT_URL = "home" # redirect user to homepage after login
+LOGOUT_REDIRECT_URL = "home" # redirect user to homepage after login

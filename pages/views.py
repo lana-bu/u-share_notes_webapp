@@ -1,0 +1,109 @@
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.views.decorators.http import require_POST
+from django.db.models import Q
+from api.forms import PostForm
+from api.models import Post
+
+def homepage(request):
+    posts = Post.objects.all().order_by('-created_at')
+
+    # filter by university/instructor
+    school_query = request.GET.get('q-school')
+    if school_query:
+        posts = posts.filter(
+            Q(university_name__icontains=school_query) | Q(instructor_name__icontains=school_query)
+        )
+
+    # filter by course name/number
+    course_query = request.GET.get('q-course')
+    if course_query:
+        posts = posts.filter(
+            Q(course_name__icontains=course_query) | Q(course_number__icontains=course_query)
+        )
+
+    # filter by title/description
+    name_query = request.GET.get('q-name')
+    if name_query:
+        posts = posts.filter(
+            Q(title__icontains=name_query) | Q(description__icontains=name_query)
+        )
+
+    home_url = reverse('home')
+    return render(request, 'home.html', {'posts': posts, 'school_query': school_query, 'course_query': course_query, 'name_query': name_query, 'home_url': home_url})
+
+def about_page(request):
+    about_url = reverse('about')
+    return render(request, 'about.html', {'about_url': about_url})
+
+def create_post_page(request):
+    create_post_url = reverse('create-post')
+    form = PostForm(request.POST or None, request.FILES or None)
+
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            form.add_error(None, 'You must be logged in to create a post.')
+        elif form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            messages.success(request, 'Post Submitted!')
+            return redirect('create-post')
+
+    return render(request, 'create-post.html', {
+        'create_post_url': create_post_url,
+        'form': form,
+    })
+
+@login_required
+def edit_post_page(request, post_id):
+    post = get_object_or_404(Post, id=post_id, user=request.user)
+    edit_post_url = reverse('edit-post', kwargs={'post_id': post.id})
+    form = PostForm(request.POST or None, request.FILES or None, instance=post)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('post-details', post_id=post.id)
+
+    return render(request, 'edit-post.html', {
+        'post': post,
+        'edit_post_url': edit_post_url,
+        'form': form,
+    })
+
+def your_notes_page(request):
+    your_notes_url = reverse('your-notes')
+    posts = Post.objects.none()
+
+    if request.user.is_authenticated:
+        posts = Post.objects.filter(user=request.user).order_by('-created_at')
+
+    return render(request, 'your-notes.html', {
+        'your_notes_url': your_notes_url,
+        'posts': posts,
+    })
+
+def post_details_page(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post_details_url = reverse('post-details', kwargs={'post_id': post.id})
+    return render(request, 'post-details.html', {'post': post, 'post_details_url': post_details_url})
+
+@login_required
+@require_POST
+def delete_post_page(request, post_id):
+    post = get_object_or_404(Post, id=post_id, user=request.user)
+
+    if post.notes_file:
+        post.notes_file.delete(save=False)
+
+    post.delete()
+    return redirect('your-notes')
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'

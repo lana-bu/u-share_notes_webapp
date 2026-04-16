@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Your Notes | U-Share Notes{% endblock %}
+
+{% block description %}
+<meta name="description" content="View the notes you've shared.">
+{% endblock %}
+
+{% block content %}
+
+<div class="notes-page">
+    <h1 class="content-header notes-header">Your Notes</h1>
+
+    {% if user.is_authenticated %}
+        <div class="post-list">
+
+        {% for post in posts %}
+            <div class="note-card">
+                <h2 class="note-title">{{ post.title }}</h2>
+
+                <p class="note-meta">
+                    {{ post.course_name }} ({{ post.course_number }}) — {{ post.instructor_name }}
+                </p>
+
+                <p class="note-desc">{{ post.description }}</p>
+
+                <small class="note-date">
+                    Posted on {{ post.created_at }}
+                </small>
+
+                <div class="post-actions">
+
+                    <a href="{% url 'post-details' post_id=post.id %}" class="btn-link">
+                        <span class="btn">View</span>
+                    </a>
+
+                    <a href="{% url 'edit-post' post_id=post.id %}" class="btn-link">
+                        <span class="btn">Edit</span>
+                    </a>
+
+                    <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn danger-btn" type="submit">Delete</button>
+                    </form>
+
+                </div>
+
+            </div>
+        {% empty %}
+            <p class="empty-msg">You haven’t shared any notes yet.</p>
+        {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <p class="empty-msg">You must be logged in to use this feature.</p>
+
+        <div class="note-form-actions">
+
+            <a href="{% url 'login' %}" class="btn-link">
+                <button class="btn">Log In</button>
+            </a>
+            
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
