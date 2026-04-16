@@ -16,46 +16,53 @@
         <form id='search' class='note-form search-form' method='get' action="{% url 'home' %}">
             <div class='note-form-field search-form-field'>
                 <label for="q-name">Title/Description: </label>
-                <input type="text" name='q-name' placeholder='Search for title or description...' value="{{name_query | default_if_none:''}}" />
+                <input type="text" name='q-name' class="search-input" placeholder='Search for title or description...' value="{{name_query | default_if_none:''}}" />
             </div>
 
             <div class='note-form-field search-form-field'>
                 <label for="q-course">Course Name/#: </label>
-                <input type="text" name='q-course' placeholder='Search for course name or #...' value="{{course_query | default_if_none:''}}" />
+                <input type="text" name='q-course' class="search-input" placeholder='Search for course name or #...' value="{{course_query | default_if_none:''}}" />
             </div>
 
             <div class='note-form-field search-form-field'>
                 <label for="q-school">University/Instructor: </label>
-                <input type="text" name='q-school' placeholder='Search for univeristy or instructor...' value="{{school_query | default_if_none:''}}" />
+                <input type="text" name='q-school' class="search-input" placeholder='Search for univeristy or instructor...' value="{{school_query | default_if_none:''}}" />
             </div>
 
-            <button type="submit" class="btn search-btn">Search</button>
+            <div class="post-actions">
+                <button id="clear-search" class="btn danger-btn">Clear</button>
+                <button type="submit" class="btn">Search</button>
+            </div>
         </form>
 
         <div class="post-list">
-        {% for post in posts %}
-            <article class="note-card">
-                <p class="note-card-tag">{{ post.university_name }}</p>
-                <h2 class="note-card-title">{{ post.title }}</h2>
-                <p class="note-card-meta">{{ post.course_name }} ({{ post.course_number }})</p>
-                <p class="note-card-submeta">{{ post.instructor_name }} | {{ post.semester }}</p>
+            {% if posts_count < 1 %}
+                <p>No notes have been shared yet.</p>
+            {% else %}
+                {% for post in posts %}
+                    <article class="note-card">
+                        <p class="note-card-tag">{{ post.university_name }}</p>
+                        <h2 class="note-card-title">{{ post.title }}</h2>
+                        <p class="note-card-meta">{{ post.course_name }} ({{ post.course_number }})</p>
+                        <p class="note-card-submeta">{{ post.instructor_name }} | {{ post.semester }}</p>
 
-                {% if post.description %}
-                    <p class="note-card-description">{{ post.description }}</p>
-                {% else %}
-                    <p class="note-card-description note-card-description-muted">No description provided.</p>
-                {% endif %}
+                        {% if post.description %}
+                            <p class="note-card-description">{{ post.description }}</p>
+                        {% else %}
+                            <p class="note-card-description note-card-description-muted">No description provided.</p>
+                        {% endif %}
 
-                <p class="note-card-date">Posted on {{ post.created_at }}</p>
+                        <p class="note-card-date">Posted on {{ post.created_at }}</p>
 
-                <div class="post-actions">
-                    <a class="btn-link" href="{% url 'post-details' post_id=post.id %}"><button class="btn">View</button></a>
-                </div>
-            </article>
+                        <div class="post-actions">
+                            <a class="btn-link" href="{% url 'post-details' post_id=post.id %}"><button class="btn">View</button></a>
+                        </div>
+                    </article>
 
-        {% empty %}
-            <p>No notes have been shared yet.</p>
-        {% endfor %}
+                {% empty %}
+                    <p>No notes match your search.</p>
+                {% endfor %}
+            {% endif %}
         
         </div>
     </div>
