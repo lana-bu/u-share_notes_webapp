@@ -24,7 +24,8 @@
             {% endif %}
 
             <strong>Date:</strong> {{ post.date_of_lecture }} <br>
-            <strong>Posted:</strong> {{ post.created_at }}
+            <strong>Posted:</strong> {{ post.created_at }} <br>
+            <strong>Uploaded by:</strong> {{ post.user.username }}
         </div>
 
         {% if post.description %}

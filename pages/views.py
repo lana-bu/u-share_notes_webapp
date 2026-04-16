@@ -12,6 +12,8 @@ from api.models import Post
 def homepage(request):
     posts = Post.objects.all().order_by('-created_at')
 
+    posts_count = Post.objects.all().count()
+
     # filter by university/instructor
     school_query = request.GET.get('q-school')
     if school_query:
@@ -34,7 +36,7 @@ def homepage(request):
         )
 
     home_url = reverse('home')
-    return render(request, 'home.html', {'posts': posts, 'school_query': school_query, 'course_query': course_query, 'name_query': name_query, 'home_url': home_url})
+    return render(request, 'home.html', {'posts': posts, 'posts_count': posts_count, 'school_query': school_query, 'course_query': course_query, 'name_query': name_query, 'home_url': home_url})
 
 def about_page(request):
     about_url = reverse('about')
