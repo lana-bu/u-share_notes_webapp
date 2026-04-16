@@ -3,48 +3,69 @@
 {% block title %}{{ post.title }} | U-Share Notes{% endblock %}
 
 {% block description %}
-    <meta name="description" content="View {{ post.title }} notes for {{ post.course_name }}.">
+<meta name="description" content="View {{ post.title }} notes for {{ post.course_name }}.">
 {% endblock %}
 
 {% block content %}
 
-    <h1 class="content-header">{{ post.title }}</h1>
+<div class="post-page">
 
-    <p>
-        <strong>Course:</strong> {{ post.course_name }} ({{ post.course_number }}) <br>
-        <strong>Instructor:</strong> {{ post.instructor_name }} <br>
-        <strong>University:</strong> {{ post.university_name }} <br>
-        <strong>Semester:</strong> {{ post.semester }} <br>
-        {% if post.class_section %}
-            <strong>Section:</strong> {{ post.class_section }} <br>
+    <h1 class="content-header post-header">{{ post.title }}</h1>
+
+    <div class="post-card">
+        <div class="post-meta">
+            <strong>Course:</strong> {{ post.course_name }} ({{ post.course_number }}) <br>
+            <strong>Instructor:</strong> {{ post.instructor_name }} <br>
+            <strong>University:</strong> {{ post.university_name }} <br>
+            <strong>Semester:</strong> {{ post.semester }} <br>
+
+            {% if post.class_section %}
+                <strong>Section:</strong> {{ post.class_section }} <br>
+            {% endif %}
+
+            <strong>Date:</strong> {{ post.date_of_lecture }} <br>
+            <strong>Posted:</strong> {{ post.created_at }}
+        </div>
+
+        {% if post.description %}
+            <p class="post-desc">{{ post.description }}</p>
         {% endif %}
-        <strong>Date:</strong> {{ post.date_of_lecture }} <br>
-        <strong>Posted:</strong> {{ post.created_at }}
-    </p>
+    </div>
 
-    {% if post.description %}
-        <p>{{ post.description }}</p>
-    {% endif %}
+    <div class="post-card">
+        <h3 class="section-title">Notes Preview</h3>
 
-    <hr>
+        <div class="preview-container">
+            <object data="{{ post.notes_file.url }}" width="100%" height="800">
+                <p style="padding: 1rem;">
+                    Unable to preview file,
+                    <a href="{{ post.notes_file.url }}">view here</a> instead.
+                </p>
+            </object>
+        </div>
+    </div>
 
-    <h3>Notes Preview</h3>
+    <div class="post-actions">
+        <a class="btn-link" href="{{ post.notes_file.url }}" download>
+            <span class="btn">Download</span>
+        </a>
 
-    <object data="{{ post.notes_file.url }}" type="application/pdf" width="100%" height="1200">
-        <p>
-            Unable to preview PDF,
-            <a href="{{ post.notes_file.url }}">view here</a>.
-        </p>
-    </object>
+        {% if user.is_authenticated and user == post.user %}
+            <a class="btn-link" href="{% url 'edit-post' post_id=post.id %}">
+                <span class="btn">Edit</span>
+            </a>
 
-    <br><br>
+            <form class="inline-form" action="{% url 'delete-post' post_id=post.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn danger-btn" type="submit">Delete</button>
+            </form>
+        {% endif %}
 
-    <a class="btn-link" href="{{ post.notes_file.url }}" download>
-        <button class="btn">Download Note</button>
-    </a>
+        <a class="btn-link" href="{% url 'home' %}">
+            <span class="btn">Back</span>
+        </a>
+    </div>
 
-    <a class="btn-link" href="{% url 'home' %}">
-        <button class="btn">Back to Home</button>
-    </a>
+</div>
 
 {% endblock %}

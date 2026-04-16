@@ -3,48 +3,57 @@
 {% block title %}About | U-Share Notes{% endblock %}
 
 {% block description %}
-    <meta name="description" content="Learn more about U-Share Notes, a platform for students to share and discover academic notes.">
+<meta name="description" content="Learn more about U-Share Notes, a platform for students to share and discover academic notes.">
 {% endblock %}
 
 {% block content %}
+
+<div class="about-page">
     <h1 class="content-header">About U-Share Notes</h1>
 
-    <p>
+    <p class="about-intro">
         <strong>U-Share Notes</strong> is a platform designed to help university students share and discover academic notes with ease.
-        Whether you're reviewing for exams, catching up on missed lectures, or looking for different perspectives on course material,
-        U-Share Notes makes collaboration simple and accessible.
     </p>
 
-    <h2>What You Can Do</h2>
-    <ul>
-        <li>Upload and share your lecture notes as PDFs</li>
-        <li>Browse notes by course, instructor, or university</li>
-        <li>Preview and download study materials instantly</li>
-        <li>Manage and edit your own uploaded notes</li>
-    </ul>
+    <div class="about-section">
+        <h2>What You Can Do</h2>
+        <ul>
+            <li>Upload and share your lecture notes as PDFs</li>
+            <li>Browse notes by course, instructor, or university</li>
+            <li>Preview and download study materials instantly</li>
+            <li>Manage your uploaded notes</li>
+        </ul>
+    </div>
 
-    <h2>Our Mission</h2>
-    <p>
-        Our goal is to create a collaborative academic environment where students can support each other’s learning.
-        By making high-quality notes more accessible, we aim to improve study efficiency and academic success.
-    </p>
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            Create a collaborative academic environment where students help each other succeed.
+        </p>
+    </div>
 
-    <h2>Who It's For</h2>
-    <p>
-        U-Share Notes is built for students across all universities and disciplines.
-        Whether you're in engineering, business, science, or the arts, you can benefit from shared knowledge.
-    </p>
+    <div class="about-section">
+        <h2>Who It's For</h2>
+        <p>
+            Built for university and college students across all disciplines.
+        </p>
+    </div>
 
-    <h2>Future Features</h2>
-    <ul>
-        <li>Search and filtering by course and university</li>
-        <li>Ratings and feedback on notes</li>
-        <li>Bookmarks and saved notes</li>
-        <li>Commenting and discussion system</li>
-    </ul>
+    <div class="about-section">
+        <h2>Future Features</h2>
+        <ul>
+            <li>Improved search and filtering</li>
+            <li>Ratings and comments</li>
+            <li>Bookmarks</li>
+        </ul>
+    </div>
 
-    <h2>Get Started</h2>
-    <p>
-        Ready to contribute? Create an account, upload your notes, and start helping other students today.
-    </p>
+    <div class="about-cta">
+        <a href="{% url 'create-post' %}" class="btn-link">
+            <span class="btn">Start Sharing Notes</span>
+        </a>
+    </div>
+
+</div>
+
 {% endblock %}

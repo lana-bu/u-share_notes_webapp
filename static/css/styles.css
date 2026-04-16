@@ -219,8 +219,122 @@ svg {
 }
 
 /* homepage contents */
-.post-list {
+.message-stack {
+    max-width: 980px;
+    margin: 0 auto 1rem;
+}
+
+.site-message {
+    border-radius: 18px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.85rem;
+    font-weight: 700;
     text-align: center;
+    border: 1px solid transparent;
+}
+
+.site-message.success {
+    background-color: #e9fbf5;
+    border-color: #9dd7c2;
+    color: #0f5a4a;
+}
+
+.post-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.note-card {
+    text-align: center;
+    background: linear-gradient(180deg, #f9fffe 0%, #eef7f8 100%);
+    border: 1px solid #c7dfdc;
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem 1.4rem;
+}
+
+.note-card-tag {
+    margin: 0 0 0.65rem;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c6a73;
+}
+
+.note-card-title {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.note-card-meta {
+    margin: 0.5rem 0 0;
+    font-weight: 700;
+}
+
+.note-card-submeta {
+    margin: 0.3rem 0 0;
+    color: #49656d;
+}
+
+.note-card-description {
+    margin: 1rem auto 0;
+    max-width: 34rem;
+    line-height: 1.45;
+}
+
+.note-card-description-muted {
+    color: #67818a;
+    font-style: italic;
+}
+
+.note-card-date {
+    margin: 1rem 0 0;
+    font-size: 0.72em;
+    color: #5b767e;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.inline-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* search form styling */
+.search-toggle-btn {
+    font-size: 0.8em;
+    background-color: transparent;
+}
+
+.search-toggle-btn:hover {
+    background-color: #69ebd150;
+}
+
+.search-toggle-btn:active {
+    background-color: #69ebd184;
+}
+
+.search-form {
+    display: none;
+    margin: var(--spacing);
+}
+
+.search-form-field {
+    margin: var(--spacing);
+}
+
+.search-btn {
+    justify-self: center;
 }
 
 /* create post form */
@@ -334,6 +448,455 @@ svg {
 
 .note-form-actions .btn {
     min-width: 12rem;
+}
+
+/* Shared Page Layout */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Optional intro / spacing helper */
+.page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Card Hover Enhancement (used everywhere) =====
+.note-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+} */
+
+/* .note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 55px rgba(0, 56, 68, 0.12);
+} */
+
+/* Slight Typography Improvements */
+.note-card-meta,
+.note-card-submeta {
+    font-size: 0.85em;
+    color: #4f7078;
+}
+
+.note-card-date {
+    font-size: 0.75em;
+    color: #4f7078;
+}
+
+/* Empty State */
+.post-list > p {
+    text-align: center;
+    color: #4f7078;
+    margin-top: 2rem;
+}
+
+/* About Page */
+.about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.about-page p {
+    line-height: 1.5;
+}
+
+/* Intro text */
+.about-intro {
+    text-align: center;
+    max-width: 45rem;
+    margin: 0 auto 2rem;
+    color: #31515a;
+}
+
+/* Section cards */
+.about-section {
+    background: linear-gradient(180deg, #f6fffd 0%, #eef7f8 100%);
+    border: 1px solid #cbe2e0;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Lists */
+.about-section ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.about-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* CTA */
+.about-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* button inside flex container */
+.about-cta .btn {
+    display: inline-flex;
+}
+
+
+/* Your Notes Page */
+.notes-page {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header */
+.notes-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Card */
+.post-card,
+.note-card {
+    background: linear-gradient(180deg, #f6fffd 0%, #eef7f8 100%);
+    border: 1px solid #cbe2e0;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 56, 68, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Title */
+.note-title {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Meta text */
+.note-meta {
+    color: #31515a;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Description */
+.note-desc {
+    margin: 0.5rem 0 1rem;
+}
+
+/* Date */
+.note-date {
+    font-size: 0.8rem;
+    color: #6b8b91;
+}
+
+/* Actions row */
+.post-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Keep buttons aligned */
+.post-actions .btn {
+    display: inline-flex;
+}
+
+/* Delete button */
+.danger-btn {
+    background: #e74c3c;
+}
+
+.danger-btn:hover {
+    background: #c0392b;
+}
+
+/* Empty state */
+.empty-msg {
+    text-align: center;
+    color: #31515a;
+    margin-top: 2rem;
+}
+
+
+/* Post Details Page */
+
+.post-page {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header */
+.post-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Metadata block */
+.post-meta {
+    line-height: 1.6;
+    color: #31515a;
+}
+
+/* Description */
+.post-desc {
+    margin-top: 1rem;
+}
+
+/* Section title */
+.section-title {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Preview box */
+.preview-container {
+    margin-top: 1rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #cbe2e0;
+}
+
+/* Actions row */
+.post-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Keep buttons aligned */
+.post-actions .btn {
+    display: inline-flex;
+}
+
+/* Danger button */
+.danger-btn {
+    background: #e74c3c;
+}
+
+.danger-btn:hover {
+    background: #c0392b;
+}
+
+.danger-btn:active {
+    background: #e74c3c;
+}
+
+/* Login Page */
+
+.login-page {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* form layout */
+.login-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* form fields spacing */
+.login-page form p {
+    margin-bottom: 1rem;
+}
+
+/* Django input styling */
+.login-page input,
+.login-page select,
+.login-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus effect */
+.login-page input:focus,
+.login-page select:focus,
+.login-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* login button center */
+.login-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.login-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.login-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* SIGNUP PAGE */
+
+.signup-page {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* form layout */
+.signup-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Django default <p> wrappers */
+.signup-page form p {
+    margin-bottom: 1rem;
+}
+
+/* inputs from  form */
+.signup-page input,
+.signup-page select,
+.signup-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus state */
+.signup-page input:focus,
+.signup-page select:focus,
+.signup-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* button alignment */
+.signup-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.signup-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.signup-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Signup Page */
+.signup-page {
+    max-width: 500px;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+/* form layout */
+.signup-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* spacing between form fields */
+.signup-page form p {
+    margin-bottom: 1.8rem;
+}
+
+/* remove extra spacing on last field */
+.signup-page form p:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+/* inputs */
+.signup-page input,
+.signup-page select,
+.signup-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus effect */
+.signup-page input:focus,
+.signup-page select:focus,
+.signup-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* signup button alignment */
+.signup-page .btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.signup-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.signup-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-links a:hover {
+    text-decoration: underline;
 }
 
 /* mobile portrait layout (479px or less */
