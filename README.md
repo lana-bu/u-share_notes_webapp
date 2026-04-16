@@ -1,5 +1,5 @@
 # u-share_notes_webapp
-This will become a web app for a notes-sharing platform. We are designing it for our CIS 376 (Software Engineering II) term project.
+U-Share Notes is a platform designed to help university students share and discover academic notes with ease. Our group designed this web app for our CIS 376 (Software Engineering II) term project.
 
 ## Quality Checks
 - `python3 manage.py check`
