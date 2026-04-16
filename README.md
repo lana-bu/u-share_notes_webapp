@@ -29,5 +29,7 @@ python3 -m pip install -r requirements.txt
 - Serving media files in development mode: https://stackoverflow.com/questions/5517950/django-media-url-and-media-root
 - Creating requirements.txt file for continuous integration: https://www.learningaboutelectronics.com/Articles/How-to-create-a-requirements-txt-file-for-a-Django-project.php
 - Django searching for objects based on field values: https://learndjango.com/tutorials/django-search-tutorial
+- Setting a default value when query result is "none": https://www.w3schools.com/django/ref_filters_default_if_none.php
+- Hosting webapp on PythonAnywhere: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Deployment#update_your_application_repository_in_github
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/
