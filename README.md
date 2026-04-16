@@ -31,5 +31,7 @@ python3 -m pip install -r requirements.txt
 - Django searching for objects based on field values: https://learndjango.com/tutorials/django-search-tutorial
 - Setting a default value when query result is "none": https://www.w3schools.com/django/ref_filters_default_if_none.php
 - Hosting webapp on PythonAnywhere: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Deployment#update_your_application_repository_in_github
+- Javascript for-of loop: https://stackoverflow.com/questions/9329446/loop-for-each-over-an-array-in-javascript
+- Getting the count of objects of a model: https://stackoverflow.com/questions/5439901/how-to-get-the-count-of-objects-in-a-queryset-django
 ### Images
 - Favicon generator: https://favicon.io/favicon-converter/

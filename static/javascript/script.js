@@ -7,9 +7,12 @@ if (document.readyState == 'loading') {
 function ready() {
     const menuButton = document.getElementById('menu-btn');
     const searchToggleButton = document.getElementById('search-toggle-btn');
+    const clearSearchButton = document.getElementById('clear-search');
 
     menuButton.addEventListener('click', toggleSidebar);
     searchToggleButton.addEventListener('click', toggleSearch);
+    clearSearchButton.addEventListener('click', clearSearch);
+
 }
 
 function toggleSidebar() {
@@ -32,5 +35,13 @@ function toggleSearch(event) {
     } else {
         buttonClicked.innerText = "Collapse Search ˄";
         searchForm.style.display = "block";
+    }
+}
+
+function clearSearch() {
+    const searchInputs = document.getElementsByClassName("search-input");
+
+    for (const input of searchInputs) {
+        input.value = "";
     }
 }
