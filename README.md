@@ -4,7 +4,7 @@ U-Share Notes is a platform designed to help university students share and disco
 ## Run Instructions
 You can easily view and use the webapp by going to https://lanabu.pythonanywhere.com/. If you want to run the web app locally on your computer, follow the instructions below.
 
-### Step q: Navigate to project
+### Step 1: Navigate to project
 In a terminal, navigate to the project directory (wherever you downloaded it).
 
 ```bash
@@ -36,7 +36,7 @@ Go to http://127.0.0.1:8000/ on your web browser (as specified by the output of 
 
 ## Testing
 ### Test Setup
-Before starting, make sure you've installed all of the necessary dependencies by following Step 2 of the Run Instructions above.
+Before starting, make sure you've navigated to the project directory and installed all of the necessary dependencies by following Steps 1 and 2 of the Run Instructions above.
 
 ### Quality Checks
 Run the following commands within the project directory to perform the tests:
