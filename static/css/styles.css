@@ -828,6 +828,77 @@ svg {
     text-decoration: underline;
 }
 
+
+/* Signup Page */
+.signup-page {
+    max-width: 500px;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+/* form layout */
+.signup-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* spacing between form fields */
+.signup-page form p {
+    margin-bottom: 1.8rem;
+}
+
+/* remove extra spacing on last field */
+.signup-page form p:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+/* inputs */
+.signup-page input,
+.signup-page select,
+.signup-page textarea {
+    width: 100%;
+    border: 1px solid #aacbc8;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* focus effect */
+.signup-page input:focus,
+.signup-page select:focus,
+.signup-page textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(105, 235, 208, 0.22);
+}
+
+/* signup button alignment */
+.signup-page .btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+/* links under form */
+.signup-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #31515a;
+    font-size: 0.95rem;
+}
+
+.signup-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-links a:hover {
+    text-decoration: underline;
+}
+
 /* mobile portrait layout (479px or less */
 @media only screen and (max-width: 479px) {
     body {

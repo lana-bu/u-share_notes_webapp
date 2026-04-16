@@ -3,21 +3,28 @@
 {% block title %}Sign Up | U-Share Notes{% endblock %}
 
 {% block description %}
-    <meta name="description" content="Sign up for a U-Share Notes account.">
+<meta name="description" content="Sign up for a U-Share Notes account.">
 {% endblock %}
 
-<!-- don't show navbar -->
 {% block navbar %}{% endblock %}
 
 {% block content %}
+<div class="signup-page">
+
     <h1 class="content-header">Sign Up</h1>
+
     <form method="post">
         {% csrf_token %}
         {{ form }}
         <button class="btn" type="submit">Sign Up</button>
     </form>
-    <p>If you already have an account made, log into it <a href="{% url 'login' %}">here</a>.
-    <br>
+
+    <p class="signup-links">
+        If you already have an account, log in
+        <a href="{% url 'login' %}">here</a>.
+        <br>
         (Or <a href="{% url 'home' %}">browse notes as Guest</a>)
     </p>
+
+</div>
 {% endblock %}
